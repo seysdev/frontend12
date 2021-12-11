@@ -1,37 +1,165 @@
-/*
-GLOBAL
-estilos globales, aca ira los selectores de 
-etiquetas globales
-*/
+/*GLOBALES*/
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
-  font-size: 16px;
-  font-family: arial;
+  color: #414141;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 2.8rem;
+  font-weight: bold;
 }
 
-/*HEADER
-aca iran estilos del header
-*/
+p {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  margin: 0 0 30px;
+}
 
-/*
-HOME
-aca iran estilos de la seccion home*/
+.images {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-/*
-SERVICIOS
-aca iran estilos de la seccion servicios*/
+.images figure {
+  margin-right: 30px;
+}
 
-/*
-PORTAFOLIO
-aca iran estilos de la seccion portafolio*/
+/*STICKY FOOTER*/
+.wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 
-/*
-CONTACTO
-aca iran estilos de la seccion contacto*/
+.wrap .main {
+  flex-grow: 1;
+}
 
-/*
-FOOTER
-aca iran estilos de la seccion footer*/
+/*HEADER*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  background-color: #9ecefa;
+  color: #707070;
+}
+
+.header .logo {
+  font-size: 3.2rem;
+  font-weight: bold;
+  color: #87119a;
+}
+
+.header ul {
+  display: flex;
+}
+
+.header li {
+  margin-left: 20px;
+}
+
+.header li a {
+  font-weight: bold;
+}
+
+.header li a:hover {
+  text-decoration: underline;
+  color: #87119a;
+}
+
+/*MAIN*/
+.main {
+  padding: 30px;
+}
+
+.main > section {
+  margin-bottom: 80px;
+}
+
+.main h2 {
+  margin-bottom: 25px;
+  color: #87119a;
+  border-left: 8px solid #87119a;
+  padding: 15px 0 15px 22px;
+}
+
+/*OUR*/
+.our .images figure {
+  margin-right: 25px;
+}
+
+/*SERVICES*/
+.services .images {
+  justify-content: center;
+  margin-bottom: 54px;
+}
+
+.services .images figure {
+  margin-right: 54px;
+}
+
+/*PORTFOLIO*/
+.portfolio .images figure {
+  margin-right: 40px;
+  margin-bottom: 40px;
+}
+
+/*CONTACT*/
+.contact .data {
+  display: flex;
+}
+
+.contact .data-left {
+  margin-right: 30px;
+}
+
+.contact .data-right {
+  padding-top: 30px;
+}
+
+.contact .data-right li {
+  margin-bottom: 38px;
+  display: flex;
+}
+
+.contact .data-right b {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.contact .data-right a {
+  color: #87119a;
+}
+
+.contact .data-right a:hover {
+  text-decoration: underline;
+}
+
+/*FOOTER*/
+.footer {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #9ecefa;
+  color: #fff;
+}
+
+.footer p {
+  margin: 0;
+}
