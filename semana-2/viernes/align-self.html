@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEX</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: arial;
+            font-size: 13px;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 18px;
+        }
+
+        .flex {
+            /* display: inline-flex; */
+            display: flex;
+            background: pink;
+            margin-bottom: 20px;
+            height: 200px;
+        }
+
+        .flex div:nth-child(odd) {
+            background: red;
+        }
+
+        .flex div:nth-child(even) {
+            background: green;
+        }
+
+        .flex div:nth-child(1) {
+            align-self: center;
+        }
+
+        .flex div:nth-child(2) {
+            align-self: end;
+        }
+
+        .flex div:nth-child(3) {
+            align-self: stretch;
+        }
+
+        .flex div:nth-child(4) {
+            align-self: start;
+        }
+    </style>
+
+    <h1>ALIGN SELF</h1>
+    <hr>
+    <br>
+
+    <div class="flex">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+
+</body>
+
+</html>

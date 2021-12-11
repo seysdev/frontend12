@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEX</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: arial;
+            font-size: 13px;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 18px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: flex-start;
+            align-items: stretch;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            background: pink;
+            margin-bottom: 20px;
+            height: 100px;
+
+        }
+
+        .flex div {
+            width: 200px;
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        .flex-wrap-reverse {
+            flex-wrap: wrap-reverse;
+        }
+
+        .flex div:nth-child(odd) {
+            background: red;
+        }
+
+        .flex div:nth-child(even) {
+            background: green;
+        }
+    </style>
+
+    <h1>FLEX WRAP</h1>
+    <hr>
+    <br>
+
+    <h2>NO-WRAP</h2>
+    <div class="flex">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+
+    <h2>WRAP</h2>
+    <div class="flex flex-wrap">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+
+    <h2>WRAP REVERSE</h2>
+    <div class="flex flex-wrap-reverse">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+
+
+
+
+</body>
+
+</html>

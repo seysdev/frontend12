@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEX</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: arial;
+            font-size: 13px;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 18px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: flex-start;
+            align-items: stretch;
+            flex-direction: row;
+            background: pink;
+            margin-bottom: 20px;
+            height: 100px;
+        }
+
+        .flex div:nth-child(odd) {
+            background: red;
+        }
+
+        .flex div:nth-child(even) {
+            background: green;
+        }
+
+        .flex-column {
+            flex-direction: column;
+        }
+
+        .flex-column-reverse {
+            flex-direction: column-reverse;
+        }
+
+        .flex-reverse {
+            flex-direction: row-reverse;
+        }
+    </style>
+
+    <h1>FLEX DIRECTION</h1>
+    <hr>
+    <br>
+
+    <h2>Columna</h2>
+    <div class="flex flex-column">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+
+    <h2>Columna reversa</h2>
+    <div class="flex flex-column-reverse">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+
+    <h2>Row</h2>
+    <div class="flex flex">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+
+    <h2>Row reverse</h2>
+    <div class="flex flex-reverse">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+
+</body>
+
+</html>
