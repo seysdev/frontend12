@@ -1,37 +1,187 @@
-/*
-GLOBAL
-estilos globales, aca ira los selectores de 
-etiquetas globales
-*/
+/*GLOBALES*/
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
-  font-size: 16px;
+  color: #000;
   font-family: arial;
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 2.4rem;
+  font-weight: bold;
 }
 
-/*HEADER
-aca iran estilos del header
-*/
+p {
+  line-height: 2.6rem;
+  margin: 0 0 30px;
+}
 
-/*
-HOME
-aca iran estilos de la seccion home*/
+.images {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-/*
-SERVICIOS
-aca iran estilos de la seccion servicios*/
+.images figure {
+  margin-right: 30px;
+}
 
-/*
-PORTAFOLIO
-aca iran estilos de la seccion portafolio*/
+.list-services {
+  padding-left: 20px;
+  margin-top: 60px;
+  list-style: disc;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
 
-/*
-CONTACTO
-aca iran estilos de la seccion contacto*/
+.list-services li {
+  margin-bottom: 22px;
+}
 
-/*
-FOOTER
-aca iran estilos de la seccion footer*/
+.list-services li:last-child {
+  margin-bottom: 0;
+}
+
+/*STICKY FOOTER*/
+.wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.wrap .main {
+  flex-grow: 1;
+}
+
+/*HEADER*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  background-color: #00af1c;
+  color: #fff;
+}
+
+.header .logo {
+  font-size: 3.2rem;
+  font-weight: bold;
+}
+
+.header ul {
+  display: flex;
+}
+
+.header li {
+  margin-left: 20px;
+}
+
+.header li a:hover {
+  text-decoration: underline;
+}
+
+/*MAIN*/
+.main {
+  padding: 60px 30px;
+}
+
+.main > section {
+  margin-bottom: 80px;
+}
+
+.main h2 {
+  margin-bottom: 25px;
+}
+
+/*HOME*/
+.home h2 {
+  color: #3b06d2;
+}
+
+/*SERVICES*/
+.services h2 {
+  color: #d206b2;
+}
+
+.services li:nth-child(1) {
+  color: #ff0000;
+}
+
+.services li:nth-child(2) {
+  color: #1400ff;
+}
+
+.services li:nth-child(3) {
+  color: #d79b00;
+}
+
+.services li:nth-child(4) {
+  color: #03b2b2;
+}
+
+/*PORTFOLIO*/
+.portfolio h2 {
+  color: #aad206;
+}
+
+.portfolio li:nth-child(1) {
+  color: #ae8800;
+}
+
+.portfolio li:nth-child(2) {
+  color: #ae280b;
+}
+
+.portfolio li:nth-child(3) {
+  color: #060564;
+}
+
+.portfolio li:nth-child(4) {
+  color: #637300;
+}
+
+/*CONTACT*/
+.contact h2 {
+  color: #06d2c6;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  border: 1px solid #000;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.contact button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #22a900;
+  color: #22a900;
+}
+
+/*FOOTER*/
+.footer {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00af1c;
+  color: #fff;
+}
+
+.footer p {
+  margin: 0;
+}
