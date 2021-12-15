@@ -27,7 +27,7 @@
             display: grid;
             /* background: pink; */
             grid-template-columns: 1fr 1fr 1fr 1fr;
-            /* grid-template-rows: 100px 100px; */
+            /* grid-template-rows: 1fr 100px; */
 
             /* grid-row-gap: 20px;
             grid-column-gap: 20px; */
@@ -42,18 +42,23 @@
         .grid div:nth-child(even) {
             background: yellow;
         }
+
+        img {
+            width: 100%;
+            display: block;
+        }
     </style>
     <main>
         <div class="container">
             <div class="grid">
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
-                <div>7</div>
-                <div>8</div>
+                <div><img src="https://picsum.photos/200/300?random=1" alt=""></div>
+                <div><img src="https://picsum.photos/200/300?random=2" alt=""></div>
+                <div><img src="https://picsum.photos/200/300?random=3" alt=""></div>
+                <div><img src="https://picsum.photos/200/300?random=4" alt=""></div>
+                <div><img src="https://picsum.photos/200/300?random=5" alt=""></div>
+                <div><img src="https://picsum.photos/200/300?random=6" alt=""></div>
+                <div><img src="https://picsum.photos/200/300?random=7" alt=""></div>
+                <div><img src="https://picsum.photos/200/300?random=8" alt=""></div>
             </div>
         </div>
     </main>
