@@ -10,24 +10,21 @@
 
 <body>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             margin: 0;
         }
 
         .wrap {
             display: grid;
-            /* background: pink; */
             grid-template-columns: 200px 1fr 200px;
             grid-template-rows: 100px 1fr 100px;
             grid-template-areas: "header header header"
                 "nav main aside"
                 "footer footer footer";
-
-            /* grid-template-rows: 1fr 100px; */
-            /* grid-row-gap: 20px;
-            grid-column-gap: 20px; */
-            /* grid-gap: 20px;
-            padding: 20px; */
             height: 100vh;
         }
 
@@ -82,34 +79,34 @@
             display: block;
         }
     </style>
-    <main>
-        <div class="wrap">
-            <header>
-                header
-            </header>
-            <nav>
-                NAV
-            </nav>
-            <main>
-                <div class="grid">
-                    <div><img src="https://picsum.photos/200/300?random=1" alt=""></div>
-                    <div><img src="https://picsum.photos/200/300?random=2" alt=""></div>
-                    <div><img src="https://picsum.photos/200/300?random=3" alt=""></div>
-                    <div><img src="https://picsum.photos/200/300?random=4" alt=""></div>
-                    <div><img src="https://picsum.photos/200/300?random=5" alt=""></div>
-                    <div><img src="https://picsum.photos/200/300?random=6" alt=""></div>
-                    <div><img src="https://picsum.photos/200/300?random=7" alt=""></div>
-                    <div><img src="https://picsum.photos/200/300?random=8" alt=""></div>
-                </div>
-            </main>
-            <aside>
-                ASIDE
-            </aside>
-            <footer>
-                footer
-            </footer>
-        </div>
-    </main>
+
+    <div class="wrap">
+        <header>
+            header
+        </header>
+        <nav>
+            NAV
+        </nav>
+        <main>
+            <div class="grid">
+                <div><img src="https://picsum.photos/200/300?random=1" alt=""></div>
+                <div><img src="https://picsum.photos/200/300?random=2" alt=""></div>
+                <div><img src="https://picsum.photos/200/300?random=3" alt=""></div>
+                <div><img src="https://picsum.photos/200/300?random=4" alt=""></div>
+                <div><img src="https://picsum.photos/200/300?random=5" alt=""></div>
+                <div><img src="https://picsum.photos/200/300?random=6" alt=""></div>
+                <div><img src="https://picsum.photos/200/300?random=7" alt=""></div>
+                <div><img src="https://picsum.photos/200/300?random=8" alt=""></div>
+            </div>
+        </main>
+        <aside>
+            ASIDE
+        </aside>
+        <footer>
+            footer
+        </footer>
+    </div>
+
 
 </body>
 
