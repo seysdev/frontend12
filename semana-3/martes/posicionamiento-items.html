@@ -5,54 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS-GRID / AREAS</title>
+    <title>CSS-GRID</title>
 </head>
 
 <body>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
         }
 
-        .wrap {
-            display: grid;
-            grid-template-columns: 200px 1fr 200px;
-            grid-template-rows: 100px 1fr 100px;
-            grid-template-areas: "header header header"
-                "nav main aside"
-                "footer footer footer";
-            height: 100vh;
-        }
-
-        header {
-            grid-area: header;
-            background: red;
-        }
-
-        nav {
-            grid-area: nav;
-            background: blue;
-        }
-
         main {
-            grid-area: main;
             background: green;
         }
 
-        aside {
-            grid-area: aside;
-            background: orange;
+        .container {
+            max-width: 960px;
+            margin: auto;
         }
-
-        footer {
-            grid-area: footer;
-            background: blueviolet;
-        }
-
 
         .grid {
             display: grid;
@@ -77,17 +46,26 @@
         img {
             width: 100%;
             display: block;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .grid div:nth-child(1) {
+            /* grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 3; */
+            grid-column-end: span 2;
+            grid-row-end: span 2;
+        }
+
+        .grid div:nth-child(2) {
+            grid-column-end: span 2;
+            grid-row-end: span 2;
         }
     </style>
-
-    <div class="wrap">
-        <header>
-            header
-        </header>
-        <nav>
-            NAV
-        </nav>
-        <main>
+    <main>
+        <div class="container">
             <div class="grid">
                 <div><img src="https://picsum.photos/200/300?random=1" alt=""></div>
                 <div><img src="https://picsum.photos/200/300?random=2" alt=""></div>
@@ -98,15 +76,8 @@
                 <div><img src="https://picsum.photos/200/300?random=7" alt=""></div>
                 <div><img src="https://picsum.photos/200/300?random=8" alt=""></div>
             </div>
-        </main>
-        <aside>
-            ASIDE
-        </aside>
-        <footer>
-            footer
-        </footer>
-    </div>
-
+        </div>
+    </main>
 
 </body>
 
