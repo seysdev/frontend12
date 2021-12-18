@@ -1,6 +1,8 @@
+/*FUENTES*/
 /*GLOBALES*/
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 html {
@@ -29,8 +31,11 @@ p {
 }
 
 .images {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .images figure {
@@ -55,20 +60,33 @@ p {
 
 /*STICKY FOOTER*/
 .wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 100vh;
 }
 
 .wrap .main {
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 /*HEADER*/
 .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 30px;
   background-color: #00af1c;
   color: #fff;
@@ -80,6 +98,8 @@ p {
 }
 
 .header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -89,24 +109,6 @@ p {
 
 .header li a:hover {
   text-decoration: underline;
-}
-
-/*MAIN*/
-.main {
-  padding: 60px 30px;
-}
-
-.main > section {
-  margin-bottom: 80px;
-}
-
-.main h2 {
-  margin-bottom: 25px;
-}
-
-/*HOME*/
-.home h2 {
-  color: #3b06d2;
 }
 
 /*SERVICES*/
@@ -175,9 +177,15 @@ p {
 /*FOOTER*/
 .footer {
   padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #00af1c;
   color: #fff;
 }

@@ -1,0 +1,25 @@
+/*
+header
+*/
+$header-padding: 20px;
+$header-logo-font-size: 1.6rem;
+
+.header {
+  padding: $header-padding;
+  background: $color-primary;
+  display: flex;
+
+  .logo {
+    font-size: $header-logo-font-size;
+  }
+
+  nav {
+    ul {
+      display: flex;
+    }
+
+    li {
+      margin-left: 10px;
+    }
+  }
+}

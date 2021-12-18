@@ -1,0 +1,26 @@
+/*HEADER*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  background-color: #00af1c;
+  color: #fff;
+}
+
+.header .logo {
+  font-size: 3.2rem;
+  font-weight: bold;
+}
+
+.header ul {
+  display: flex;
+}
+
+.header li {
+  margin-left: 20px;
+}
+
+.header li a:hover {
+  text-decoration: underline;
+}
