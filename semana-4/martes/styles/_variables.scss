@@ -1,0 +1,28 @@
+/*COLORS*/
+$color-primary: red;
+$color-secondary: blue;
+$color-complementary: orange;
+
+$colors: red, blue, orange;
+$sizes: 11px, 14px, 16px, 18px, 20px, 24px;
+
+$colors-map: (
+  primary: red,
+  secondary: blue,
+  complementary: orange,
+);
+
+$sizes-map: (
+  xsmall: 11px,
+  small: 14px,
+  medium: 16px,
+  large: 18px,
+  xlarge: 20px,
+  xxlarge: 24px,
+);
+
+/*BREACKPOINTS*/
+$bp-small: 420px;
+$bp-medium: 540px;
+$bp-large: 680px;
+$bp-xlarge: 1220px;

@@ -1,0 +1,207 @@
+%layout-basic {
+  background: red;
+  padding: 20px;
+  width: 960px;
+  border: 1px solid blue;
+}
+
+.header {
+  @extend %layout-basic;
+}
+
+footer {
+  @extend %layout-basic;
+}
+
+main {
+  @extend %layout-basic;
+}
+
+$base-url: "https://larepublicadelperu.com";
+
+div {
+  background: url("#{$base-url}/images/imagen-one.jpg");
+}
+
+div {
+  background: url("#{$base-url}/images/imagen-two.jpg");
+}
+
+div {
+  background: url("#{$base-url}/images/imagen-three.jpg");
+}
+
+/*COLORS*/
+$color-primary: red;
+$color-secondary: blue;
+$color-complementary: orange;
+
+$colors: red, blue, orange;
+$sizes: 11px, 14px, 16px, 18px, 20px, 24px;
+
+$colors-map: (
+  primary: red,
+  secondary: blue,
+  complementary: orange,
+);
+
+$sizes-map: (
+  xsmall: 11px,
+  small: 14px,
+  medium: 16px,
+  large: 18px,
+  xlarge: 20px,
+  xxlarge: 24px,
+);
+
+/*BREACKPOINTS*/
+$bp-small: 420px;
+$bp-medium: 540px;
+$bp-large: 680px;
+$bp-xlarge: 1220px;
+
+$breakpoints: (
+  small: 420px,
+  medium: 540px,
+  large: 680px,
+  xlarge: 1220px,
+);
+
+/*
+MIXINGS
+*/
+@mixin breakpoint($point) {
+  @if ($point == small) {
+    @media (max-width: map-get($breakpoints, small)) {
+      @content;
+    }
+  }
+
+  @if ($point == medium) {
+    @media (max-width: map-get($breakpoints, medium)) {
+      @content;
+    }
+  }
+
+  @if ($point == large) {
+    @media (max-width: map-get($breakpoints, large)) {
+      @content;
+    }
+  }
+
+  @if ($point == xlarge) {
+    @media (max-width: map-get($breakpoints, xlarge)) {
+      @content;
+    }
+  }
+}
+
+@mixin boxRounded($boxWidth: 40px, $boxHeight: 40px, $rounded: 40px) {
+  width: $boxWidth;
+  height: $boxHeight;
+  border-radius: $rounded;
+}
+
+@mixin box-shadow($x, $y, $blur, $color) {
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin fontSize($size) {
+  @if ($size == small) {
+    font-size: 11px;
+    line-height: 22px;
+  }
+
+  @if ($size == medium) {
+    font-size: 13px;
+    line-height: 26px;
+  }
+
+  @if ($size == large) {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  @if ($size == xlarge) {
+    font-size: 18px;
+    line-height: 36px;
+  }
+}
+
+@mixin textColors($type) {
+  @if ($type == primary) {
+    color: $color-primary;
+    border: 1px solid $color-primary;
+  }
+
+  @if ($type == secondary) {
+    color: $color-secondary;
+    border: 1px solid $color-secondary;
+  }
+
+  @if ($type == complementary) {
+    color: $color-complementary;
+    border: 1px solid $color-complementary;
+  }
+}
+
+div {
+  @include boxRounded();
+  @include box-shadow(10px, 10px, 10px, red);
+}
+
+section {
+  @include boxRounded(60px, 60px, 60px);
+  @include box-shadow(10px, 10px, 10px, blue);
+}
+
+h2 {
+  @include fontSize(small);
+  @include textColors(primary);
+
+  @include breakpoint(small) {
+    @include fontSize(large);
+  }
+
+  @include breakpoint(medium) {
+    @include fontSize(large);
+  }
+
+  @include breakpoint(xlarge) {
+    @include fontSize(large);
+  }
+}
+
+h3 {
+  @include fontSize(medium);
+  @include textColors(secondary);
+}
+
+h4 {
+  @include fontSize(large);
+  @include textColors(complementary);
+}
+
+@each $color in $colors {
+  .color-#{$color} {
+    color: $color;
+  }
+}
+
+@each $size in $sizes {
+  .size-#{$size} {
+    font-size: $size;
+  }
+}
+
+@each $key, $value in $colors-map {
+  .color-#{$key} {
+    color: $value;
+  }
+}
+
+@each $key, $value in $sizes-map {
+  .size-#{$key} {
+    font-size: $value;
+  }
+}

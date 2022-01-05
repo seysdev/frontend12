@@ -1,0 +1,150 @@
+main, footer, .header {
+  background: red;
+  padding: 20px;
+  width: 960px;
+  border: 1px solid blue;
+}
+
+div {
+  background: url("https://larepublicadelperu.com/images/imagen-one.jpg");
+}
+
+div {
+  background: url("https://larepublicadelperu.com/images/imagen-two.jpg");
+}
+
+div {
+  background: url("https://larepublicadelperu.com/images/imagen-three.jpg");
+}
+
+/*COLORS*/
+/*BREACKPOINTS*/
+/*
+MIXINGS
+*/
+div {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  -webkit-box-shadow: 10px 10px 10px red;
+          box-shadow: 10px 10px 10px red;
+}
+
+section {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  -webkit-box-shadow: 10px 10px 10px blue;
+          box-shadow: 10px 10px 10px blue;
+}
+
+h2 {
+  font-size: 11px;
+  line-height: 22px;
+  color: red;
+  border: 1px solid red;
+}
+@media (max-width: 420px) {
+  h2 {
+    font-size: 14px;
+    line-height: 28px;
+  }
+}
+@media (max-width: 540px) {
+  h2 {
+    font-size: 14px;
+    line-height: 28px;
+  }
+}
+@media (max-width: 1220px) {
+  h2 {
+    font-size: 14px;
+    line-height: 28px;
+  }
+}
+
+h3 {
+  font-size: 13px;
+  line-height: 26px;
+  color: blue;
+  border: 1px solid blue;
+}
+
+h4 {
+  font-size: 14px;
+  line-height: 28px;
+  color: orange;
+  border: 1px solid orange;
+}
+
+.color-red {
+  color: red;
+}
+
+.color-blue {
+  color: blue;
+}
+
+.color-orange {
+  color: orange;
+}
+
+.size-11px {
+  font-size: 11px;
+}
+
+.size-14px {
+  font-size: 14px;
+}
+
+.size-16px {
+  font-size: 16px;
+}
+
+.size-18px {
+  font-size: 18px;
+}
+
+.size-20px {
+  font-size: 20px;
+}
+
+.size-24px {
+  font-size: 24px;
+}
+
+.color-primary {
+  color: red;
+}
+
+.color-secondary {
+  color: blue;
+}
+
+.color-complementary {
+  color: orange;
+}
+
+.size-xsmall {
+  font-size: 11px;
+}
+
+.size-small {
+  font-size: 14px;
+}
+
+.size-medium {
+  font-size: 16px;
+}
+
+.size-large {
+  font-size: 18px;
+}
+
+.size-xlarge {
+  font-size: 20px;
+}
+
+.size-xxlarge {
+  font-size: 24px;
+}

@@ -1,0 +1,77 @@
+/*
+MIXINGS
+*/
+@mixin breakpoint($point) {
+  @if ($point == small) {
+    @media (max-width: $bp-small) {
+      @content;
+    }
+  }
+
+  @if ($point == medium) {
+    @media (max-width: $bp-medium) {
+      @content;
+    }
+  }
+
+  @if ($point == large) {
+    @media (max-width: $bp-large) {
+      @content;
+    }
+  }
+
+  @if ($point == xlarge) {
+    @media (max-width: $bp-xlarge) {
+      @content;
+    }
+  }
+}
+
+@mixin boxRounded($boxWidth: 40px, $boxHeight: 40px, $rounded: 40px) {
+  width: $boxWidth;
+  height: $boxHeight;
+  border-radius: $rounded;
+}
+
+@mixin box-shadow($x, $y, $blur, $color) {
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin fontSize($size) {
+  @if ($size == small) {
+    font-size: 11px;
+    line-height: 22px;
+  }
+
+  @if ($size == medium) {
+    font-size: 13px;
+    line-height: 26px;
+  }
+
+  @if ($size == large) {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  @if ($size == xlarge) {
+    font-size: 18px;
+    line-height: 36px;
+  }
+}
+
+@mixin textColors($type) {
+  @if ($type == primary) {
+    color: $color-primary;
+    border: 1px solid $color-primary;
+  }
+
+  @if ($type == secondary) {
+    color: $color-secondary;
+    border: 1px solid $color-secondary;
+  }
+
+  @if ($type == complementary) {
+    color: $color-complementary;
+    border: 1px solid $color-complementary;
+  }
+}
