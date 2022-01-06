@@ -1,0 +1,100 @@
+body {
+  font-family: arial;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*OOCSS*/
+.button {
+  border: none;
+  width: 213px;
+  height: 68px;
+  color: white;
+}
+
+.button-primary {
+  background: red;
+}
+
+.button-secondary {
+  background: #0b9685;
+}
+
+.container {
+  max-width: 400px;
+  margin: auto;
+}
+
+header {
+  background: red;
+  padding: 20px;
+}
+
+main {
+  background: green;
+  padding: 20px;
+}
+
+footer {
+  background: orange;
+  padding: 20px;
+}
+
+/*BEM*/
+// header
+.header {
+  background: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    font-size: 24px;
+  }
+
+  &__nav {
+    font-size: 16px;
+  }
+
+  &--black {
+    background: black;
+
+    .header__logo {
+      color: white;
+    }
+  }
+}
+
+.footer {
+  &__nav {
+    font-size: 22px;
+  }
+}
+
+// nav
+.nav {
+  &__ul {
+    display: flex;
+    list-style: none;
+    background: green;
+    padding: 0;
+  }
+
+  li {
+    margin-left: 10px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  a {
+    color: white;
+  }
+}
+
+
+@import "./button";
+@import "./card";
