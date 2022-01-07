@@ -1,0 +1,30 @@
+.about .btn-primary {
+  border-radius: 10px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sy-header,
+.sy-footer {
+  background: #e3f2fd;
+}
+
+.sy-footer {
+  padding: 20px;
+}
+
+.sy-main {
+  flex-grow: 1;
+}
+
+.object-fit {
+  object-fit: cover;
+}
+
+.underline {
+    text-decoration: underline;
+}
