@@ -1,3 +1,15 @@
+/*----------------------------------------------------------------
+/*VARIABLES*/
+/*--------------------------------------------------------------*/
+/*
+1.FONTS
+*/
+/*
+2. MEDIAQUERIES
+*/
+/*
+MIXINGS
+*/
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -136,12 +148,6 @@ table {
 }
 
 /*----------------------------------------------------------------
-/*VARIABLES*/
-/*--------------------------------------------------------------*/
-/*
-1.FONTS
-*/
-/*----------------------------------------------------------------
 /*GLOBALS*/
 /*--------------------------------------------------------------*/
 * {
@@ -167,6 +173,11 @@ a {
   max-width: 940px;
   margin: auto;
 }
+@media (max-width: 980px) {
+  .container {
+    padding: 0 20px;
+  }
+}
 
 .title-section {
   font-size: 2rem;
@@ -177,89 +188,6 @@ a {
 
 img {
   display: block;
-}
-
-/*----------------------------------------------------------------
-/*.header*/
-/*--------------------------------------------------------------*/
-.header {
-  padding: 50px 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-/*----------------------------------------------------------------
-/*.nav*/
-/*--------------------------------------------------------------*/
-.nav ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 2rem;
-}
-.nav li {
-  margin-left: 50px;
-}
-
-/*----------------------------------------------------------------
-/*.banner*/
-/*--------------------------------------------------------------*/
-.banner {
-  position: relative;
-}
-.banner img {
-  width: 100%;
-  height: 250px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.banner__text {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  padding: 55px 0;
-  text-align: center;
-  color: #fff;
-}
-.banner h1 {
-  font-size: 4.4rem;
-  margin-bottom: 16px;
-}
-.banner p {
-  font-size: 2rem;
-  line-height: 30px;
-}
-
-/*----------------------------------------------------------------
-/*.search*/
-/*--------------------------------------------------------------*/
-.search {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 56px 0;
-  background-color: #f4f4f4;
-  border-radius: 10px;
-  padding-left: 24px;
-}
-.search input,
-.search button {
-  background: transparent;
-  border: none;
-}
-.search input {
-  padding: 20px;
-  width: 100%;
-}
-.search input:focus {
-  outline: none;
 }
 
 /*----------------------------------------------------------------
@@ -298,6 +226,14 @@ img {
 .article__info time {
   opacity: 0.4;
 }
+.article__info__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 .article__info__right a {
   display: inline-block;
   margin-left: 38px;
@@ -305,46 +241,100 @@ img {
 .article__info__right a:first-child {
   margin-left: 0;
 }
+@media (max-width: 880px) {
+  .article h2 {
+    font-size: 2.8rem;
+  }
+  .article__info__right a {
+    margin-left: 18px;
+  }
+}
 
 /*----------------------------------------------------------------
-/*.popular*/
+/*.banner*/
 /*--------------------------------------------------------------*/
-.popular {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding-bottom: 26px;
-  margin-bottom: 58px;
+.banner {
+  position: relative;
 }
-.popular__principal {
+.banner img {
+  width: 100%;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.banner__text {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 20px;
-  margin-bottom: 33px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
-.popular__articles {
+.banner h1 {
+  font-size: 4.4rem;
+  margin-bottom: 16px;
+}
+.banner p {
+  font-size: 2rem;
+  line-height: 30px;
+}
+@media (max-width: 880px) {
+  .banner h1 {
+    font-size: 3.2rem;
+    margin-bottom: 16px;
+  }
+  .banner p {
+    font-size: 1.6rem;
+    line-height: 30px;
+  }
+}
+
+/*----------------------------------------------------------------
+/*.nav*/
+/*--------------------------------------------------------------*/
+.nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 20px;
-  margin-bottom: 50px;
+  font-size: 2rem;
 }
-.popular__articles h2 {
-  font-size: 22px;
-  line-height: 32px;
-  margin-bottom: 12px;
+.nav li {
+  margin-left: 50px;
 }
-.popular__articles img {
-  margin-bottom: 10px;
+
+/*----------------------------------------------------------------
+/*.search*/
+/*--------------------------------------------------------------*/
+.search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 56px 0;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  padding-left: 24px;
 }
-.popular__see {
-  text-align: right;
-  font-size: 16px;
-  line-height: 18px;
-  color: #356ead;
+.search input,
+.search button {
+  background: transparent;
+  border: none;
 }
-.popular__see a {
-  text-transform: uppercase;
-  font-weight: bold;
+.search input {
+  padding: 20px;
+  width: 100%;
+}
+.search input:focus {
+  outline: none;
 }
 
 /*----------------------------------------------------------------
@@ -399,6 +389,105 @@ img {
 }
 .all-articles__nav a:last-child img {
   margin-left: 10px;
+}
+@media (max-width: 580px) {
+  .all-articles__article {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .all-articles__article img {
+    width: 100%;
+  }
+}
+
+/*----------------------------------------------------------------
+/*.popular*/
+/*--------------------------------------------------------------*/
+.popular {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 26px;
+  margin-bottom: 58px;
+}
+.popular__principal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 33px;
+}
+.popular__articles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+.popular__articles h2 {
+  font-size: 22px;
+  line-height: 32px;
+  margin-bottom: 12px;
+}
+.popular__articles figure img {
+  margin-bottom: 10px;
+  width: 100%;
+}
+.popular__see {
+  text-align: right;
+  font-size: 16px;
+  line-height: 18px;
+  color: #356ead;
+}
+.popular__see a {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+@media (max-width: 880px) {
+  .popular__principal {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .popular__principal__right {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+    margin: auto;
+    width: 100%;
+  }
+  .popular__principal__right img {
+    width: 100%;
+  }
+  .popular__articles h2 {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+@media (max-width: 580px) {
+  .popular__articles {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+/*----------------------------------------------------------------
+/*.header*/
+/*--------------------------------------------------------------*/
+.header {
+  padding: 50px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 /*----------------------------------------------------------------
@@ -481,3 +570,14 @@ img {
 .footer__allrights {
   opacity: 0.4;
 }
+@media (max-width: 880px) {
+  .footer__top .container, .footer__bottom .container {
+    padding: 0 80px;
+  }
+}
+@media (max-width: 720px) {
+  .footer__top .container, .footer__bottom .container {
+    padding: 0 25px;
+  }
+}
+/*# sourceMappingURL=home.css.map */
