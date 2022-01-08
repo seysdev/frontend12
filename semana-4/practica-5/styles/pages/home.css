@@ -311,6 +311,14 @@ img {
 .nav li {
   margin-left: 50px;
 }
+@media (max-width: 720px) {
+  .nav li {
+    margin-left: 30px;
+  }
+  .nav a {
+    font-size: 1.4rem;
+  }
+}
 
 /*----------------------------------------------------------------
 /*.search*/
@@ -578,6 +586,45 @@ img {
 @media (max-width: 720px) {
   .footer__top .container, .footer__bottom .container {
     padding: 0 25px;
+  }
+  .footer__top {
+    padding: 40px 0;
+  }
+  .footer__top h2 {
+    font-size: 2.8rem;
+    margin-bottom: 14px;
+  }
+  .footer__top .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer__top button {
+    width: 100%;
+  }
+  .footer__left, .footer__right {
+    width: 100%;
+  }
+  .footer__right {
+    text-align: left;
+    margin-top: 20px;
+  }
+  .footer__bottom {
+    padding: 40px 0;
+  }
+  .footer__flex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 0;
+  }
+  .footer__item {
+    margin-bottom: 30px;
+  }
+  .footer__item:last-child {
+    margin: 0;
   }
 }
 /*# sourceMappingURL=home.css.map */
