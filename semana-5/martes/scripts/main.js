@@ -80,3 +80,8 @@ De numero a string
 let numberData = 10;
 console.log(typeof String(10)); // number -> string
 console.log(typeof numberData.toString()); // number -> string
+
+let numero1 = Number(prompt("INGRESA UN NUMERO"));
+let numero2 = Number(prompt("INGRESA OTRO NUMERO"));
+
+alert(numero1 + numero2);
