@@ -85,3 +85,4 @@ let numero1 = Number(prompt("INGRESA UN NUMERO"));
 let numero2 = Number(prompt("INGRESA OTRO NUMERO"));
 
 alert(numero1 + numero2);
+
