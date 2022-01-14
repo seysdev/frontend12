@@ -50,3 +50,8 @@ function doWhileIterador() {
   } while (n < 10);
 }
 doWhileIterador();
+
+const numeros = [0, 1, 2, 3];
+for (let index = 1; index < array.length; index++) {
+  const element = array[index];
+}
