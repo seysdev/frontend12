@@ -191,28 +191,28 @@ const mascotas = [
     name: "mascota uno",
     edad: 1,
     raza: "uno",
-    pais: "uno",
+    pais: "peru",
     sexo: "h",
   },
   {
     name: "mascota dos",
     edad: 2,
     raza: "dos",
-    pais: "dos",
+    pais: "peru",
     sexo: "h",
   },
   {
     name: "mascota tres",
     edad: 3,
     raza: "tres",
-    pais: "tres",
+    pais: "peru",
     sexo: "m",
   },
   {
     name: "mascota cuatro",
     edad: 4,
     raza: "cuatro",
-    pais: "cuatro",
+    pais: "chile",
     sexo: "m",
   },
 ];
@@ -248,3 +248,29 @@ const mascotasMacho = mascotas.filter((mascota) => {
 
 console.log("mascotasHembra", mascotasHembra);
 console.log("mascotasMacho", mascotasMacho);
+
+// find
+const mascotaUno = mascotas.find((mascota) => {
+  return mascota.name == "mascota uno";
+});
+console.log("mascotaUno", mascotaUno);
+
+// findIndex
+const posicionMascotaUno = mascotas.findIndex((mascota) => {
+  return mascota.name == "mascota uno";
+});
+
+console.log("posicionMascotaUno", posicionMascotaUno);
+
+// fill
+const arrayVacio = new Array(10);
+arrayVacio.fill("1");
+console.log("arrayVacio", arrayVacio);
+
+// every
+const mismoPais = mascotas.every((mascota) => mascota.pais == "peru");
+console.log("mismoPais", mismoPais);
+
+// every
+const noSonDelMismoPais = mascotas.some((mascota) => mascota.pais == "peru");
+console.log("noSonDelMismoPais", noSonDelMismoPais);
