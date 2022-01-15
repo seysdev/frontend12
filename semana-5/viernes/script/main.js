@@ -183,5 +183,52 @@ array.unshift(400); // agrega al inicio
 console.log(array);
 array.splice(2, 3);
 console.log(array);
-
 console.log(array.reverse());
+
+/*ALUMNOS */
+const mascotas = [
+  {
+    name: "mascota uno",
+    edad: 1,
+    raza: "uno",
+    pais: "uno",
+  },
+  {
+    name: "mascota dos",
+    edad: 2,
+    raza: "dos",
+    pais: "dos",
+  },
+  {
+    name: "mascota tres",
+    edad: 3,
+    raza: "tres",
+    pais: "tres",
+  },
+  {
+    name: "mascota cuatro",
+    edad: 4,
+    raza: "cuatro",
+    pais: "cuatro",
+  },
+];
+
+let numeros = [0, 1, 2, 3, 4, 5];
+
+const copiaModificada = mascotas.map((referencia) => {
+  return {
+    name: referencia.name,
+    edad: referencia.edad,
+    raza: referencia.raza,
+    pais: referencia.pais,
+    otraProPiedad: true,
+  };
+});
+
+const copiaNumeros = numeros.map((numero) => numero + 2);
+
+console.log("copiaModificada", copiaModificada);
+console.log("mascotas", mascotas);
+
+console.log("numeros", numeros);
+console.log("copiaNumeros", copiaNumeros);
