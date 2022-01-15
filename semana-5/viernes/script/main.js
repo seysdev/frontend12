@@ -157,4 +157,31 @@ let celuLarDos = new makeMobile({
 
 console.log("celuLarDos", celuLarDos.getInfo());
 
+/*
+OBJECTOS NATIVOS 
+*/
 
+// string
+console.log("sebastian".length); // 9
+console.log("sebastian".concat(" yabiku")); // sebastian yabiku
+console.log("sebastian".includes("se")); // true
+console.log("sebastian".endsWith("tian")); // true
+console.log("sebastian".charAt(0).toUpperCase());
+
+// array
+const array = [0, 1, 2, 3, 4, 5]; // new Array(0, 1, 2, 3, 4, 5)
+const array2 = [6, 7, 8, 9];
+
+console.log(array.length); // 6
+console.log(array.concat(array2)); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+array.push(20); // agrega al final del array
+array.pop(); // elimina el ultimo del array
+array.shift(); // elimina el primer elemento
+array.unshift(400); // agrega al inicio
+
+// splice
+console.log(array);
+array.splice(2, 3);
+console.log(array);
+
+console.log(array.reverse());
