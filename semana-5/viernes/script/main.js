@@ -192,24 +192,28 @@ const mascotas = [
     edad: 1,
     raza: "uno",
     pais: "uno",
+    sexo: "h",
   },
   {
     name: "mascota dos",
     edad: 2,
     raza: "dos",
     pais: "dos",
+    sexo: "h",
   },
   {
     name: "mascota tres",
     edad: 3,
     raza: "tres",
     pais: "tres",
+    sexo: "m",
   },
   {
     name: "mascota cuatro",
     edad: 4,
     raza: "cuatro",
     pais: "cuatro",
+    sexo: "m",
   },
 ];
 
@@ -232,3 +236,15 @@ console.log("mascotas", mascotas);
 
 console.log("numeros", numeros);
 console.log("copiaNumeros", copiaNumeros);
+
+// filter
+const mascotasHembra = mascotas.filter((mascota) => {
+  return mascota.sexo == "h";
+});
+
+const mascotasMacho = mascotas.filter((mascota) => {
+  return mascota.sexo == "m";
+});
+
+console.log("mascotasHembra", mascotasHembra);
+console.log("mascotasMacho", mascotasMacho);
