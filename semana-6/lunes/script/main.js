@@ -165,3 +165,8 @@ numerosArray.push(100);
 console.log("numerosArray", numerosArray);
 console.log("numerosArray2", numerosArray2);
 console.log("numerosArray3", numerosArray3);
+
+
+// DATE
+const date = new Date()
+console.log(date.getDate())
