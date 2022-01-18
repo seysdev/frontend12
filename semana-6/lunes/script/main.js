@@ -63,3 +63,70 @@ function countRepeatLetter(stringCharacter, letterFind) {
 
 console.log(countRepeatLetter("anastacia", "a"));
 console.log(countRepeatLetter("juansaul", "s"));
+
+// TENIENDO LA SIGUIENTE COLECCION
+let numeros = [0, 1, 2, 3, 4, 5, 6];
+
+// usando el metodo map crear un programa que reciba un numero
+// y lo multiplique por cada elemento del array
+// function multiploN(col, num)
+// multiploN([0,1,2,3,4], 3) // [0,3,6,9, 12]
+// multiploN([0,1,2,3,4], 4) // [0,4,8,12, 16]
+// utilizar el metodo map
+
+function multiploN(col, num) {
+  return col.map((numEl) => {
+    return numEl * num;
+  });
+}
+
+console.log("multiploN", multiploN(numeros, 3));
+console.log("multiploN", multiploN([10, 20, 30], 3));
+console.log("multiploN", multiploN([20, 30, 40], 2));
+// TENIENDO LA SIGUIENTE coleccion
+let mascotas = [
+  {
+    name: "aronis",
+    edad: 12,
+    sexo: "m",
+  },
+  {
+    name: "terry",
+    edad: 4,
+    sexo: "m",
+  },
+  {
+    name: "juda",
+    edad: 3,
+    sexo: "h",
+  },
+  {
+    name: "aronis 2",
+    edad: 8,
+    sexo: "h",
+  },
+];
+
+// filtrar mascotas por edad mayores de 4 y menores de 4
+// filtrar por sexo macho o hembra
+// los datos filtrados guardarlo en una constante e imprimir valores filtrados
+// utilizar el metodo filter
+const mayor4Anios = mascotas.filter((mascota) => {
+  return mascota.edad > 4;
+});
+const menor4Anios = mascotas.filter((mascota) => {
+  return mascota.edad < 4;
+});
+
+const machos = mascotas.filter((mascota) => {
+  return mascota.sexo == "m";
+});
+
+const hembras = mascotas.filter((mascota) => {
+  return mascota.sexo == "h";
+});
+
+console.log("mayor4Anios", mayor4Anios);
+console.log("menor4Anios", menor4Anios);
+console.log("machos", mayor4Anios);
+console.log("hembras", menor4Anios);
