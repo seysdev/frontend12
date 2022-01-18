@@ -130,3 +130,38 @@ console.log("mayor4Anios", mayor4Anios);
 console.log("menor4Anios", menor4Anios);
 console.log("machos", mayor4Anios);
 console.log("hembras", menor4Anios);
+
+/* POR VALOR Y POR REFERENCIA*/
+let referencia = "SEBASTIAN";
+let referencia2 = referencia;
+referencia = "SEBASTIAN MODIFICADO";
+console.log("referencia", referencia); // "SEBASTIAN MODIFICADO"
+console.log("referecnia2", referencia2); // "SEBASTIAN"
+
+let objReferencia = {
+  name: "SEBASTIAN",
+  lastname: "yabiku",
+};
+let objReferencia2 = Object.assign(
+  {},
+  objReferencia,
+  { age: 32 },
+  { country: "peru" },
+  { age: 34 }
+); // copia con object assing
+let objReferencia3 = { ...objReferencia, age: 32 }; // otra forma de hacer copias
+objReferencia.name = "SEBASTIAN MODIFICADO";
+objReferencia.lastname = "yabiku MODIFICADO";
+
+console.log("objReferencia", objReferencia); // {name: "SEBASTIAN MODIFICADO"}
+console.log("objReferencia2", objReferencia2); // {name: "SEBASTIAN MODIFICADO"}
+console.log("objReferencia3", objReferencia3); // {name: "SEBASTIAN MODIFICADO"}
+
+const numerosArray = [0, 1, 2, 3, 4, 6, 7];
+const numerosArray2 = [...numerosArray]; // crea una copia de array
+const numerosArray3 = [].concat(numerosArray); // otra forma de hacer copias
+console.log("numerosArray", numerosArray);
+numerosArray.push(100);
+console.log("numerosArray", numerosArray);
+console.log("numerosArray2", numerosArray2);
+console.log("numerosArray3", numerosArray3);
