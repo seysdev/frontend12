@@ -12,6 +12,8 @@ function toggleMenu() {
     menu.style.display = "block";
   }
 }
+
+console.log("%O", button);
 // registrando un evento
 button.onclick = toggleMenu;
 button2.onmouseover = toggleMenu;
@@ -21,3 +23,17 @@ const button3 = document.querySelector(".js_button_3");
 button3.onclick = function () {
   button.style.backgroundColor = "purple";
 };
+
+const usuario = {
+  name: "sebastian",
+  lastname: "yabiku",
+  getFullName: function () {
+    console.log(this);
+  },
+};
+
+console.log("%O", usuario);
+console.log("%O", button);
+
+// usuario.getFullName = toggleMenu;
+// console.log("%O", usuario);
