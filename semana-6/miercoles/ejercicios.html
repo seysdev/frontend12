@@ -10,21 +10,33 @@
 
 <body>
     <!--EJERCICIO UNO-->
-    <button data-color="red" data-color-bg="orange" data-text="boton uno modificado">BOTON UNO</button>
-    <button data-color="blue" data-color-bg="orange" data-text="boton dos modificado">BOTON DOS</button>
-    <button data-color="orange" data-color-bg="orange" data-text="boton tres modificado">BOTON TRES</button>
-    <button data-color="purple" data-text="boton cuatro modificado">BOTON CUATRO</button>
+    <button data-color="red" data-color-bg="orange" data-text="boton uno modificado">BOTON
+        UNO</button>
+    <button data-color="blue" data-color-bg="orange" data-text="boton dos modificado">BOTON
+        DOS</button>
+    <button data-color="white" data-color-bg="orange" data-text="boton tres modificado">BOTON
+        TRES</button>
+    <button data-color="purple" data-color-bg="blue" data-text="boton cuatro modificado">BOTON CUATRO</button>
     <!-- <button>BOTON DOS</button>
     <button>BOTON TRES</button> -->
 
 
     <script>
         // EJERCICIO UNO
-        const button = document.querySelector('button')
-        button.onclick = function () {
-            console.log(this.dataset.color)
-            console.log(this)
+        function changeAttr() {
+            this.style.color = this.dataset.color
+            this.style.backgroundColor = this.dataset.colorBg
+            this.textContent = this.dataset.text
         }
+
+        const botones = document.querySelectorAll('button')
+        // for (let index = 0; index < botones.length; index++) {
+        //     botones[index].onclick = changeAttr
+        // }
+        botones.forEach((boton) => {
+            console.log("boton", boton)
+            boton.onclick = changeAttr
+        })
     </script>
 </body>
 
