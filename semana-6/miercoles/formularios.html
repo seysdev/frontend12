@@ -17,18 +17,18 @@
         <form action="">
             <div class="row mb-4">
                 <div class="col">
-                    <input class="form-control" type="text" placeholder="Nombre" required>
+                    <input class="js_name form-control" type="text" placeholder="Nombre" required>
                 </div>
                 <div class="col">
-                    <input class="form-control" type="text" placeholder="Apellido" required>
+                    <input class="js_lastname form-control" type="text" placeholder="Apellido" required>
                 </div>
             </div>
             <div class="row mb-4">
                 <div class="col">
-                    <input class="form-control" type="text" placeholder="Edad" required>
+                    <input class="js_age form-control" type="text" placeholder="Edad" required>
                 </div>
                 <div class="col">
-                    <select class="form-control" required>
+                    <select class="js_country form-control" required>
                         <option value="">Selecciona tu pais</option>
                         <option value="1">Peru</option>
                         <option value="2">Brasil</option>
@@ -38,17 +38,92 @@
             </div>
             <div class="row mb-4">
                 <div class="col">
-                    <textarea class="form-control" placeholder="Ingresa una descripcion" required></textarea>
+                    <textarea class="js_description form-control" placeholder="Ingresa una descripcion"
+                              required></textarea>
                 </div>
             </div>
             <div class="row mb-4">
                 <div class="col text-center">
-                    <button class="btn btn-primary">Registrar</button>
-                    <button class="btn btn-secondary">Limpiar</button>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                    <button type="reset" class="btn btn-secondary">Limpiar</button>
+                </div>
+            </div>
+        </form>
+
+        <a href="https://google.com">google.com</a>
+
+        <br><br>
+        <form class="border p-4" action="">
+            <div class="row mb-4">
+                <div class="col">
+                    <input required type="text" class="form-control" placeholder="Ingresa numero">
+                </div>
+                <div class="col">
+                    <input required type="text" class="form-control" placeholder="Ingresa numero">
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <select required class="form-control">
+                        <option value="">Selecciona la operacion</option>
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="*">*</option>
+                        <option value="/">/</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <button type="submit" class="btn btn-primary">Sumar</button>
+                    <button type="reset" class="btn btn-secondary">Limpiar</button>
                 </div>
             </div>
         </form>
     </div>
+
+    <script>
+        function ejemploUno() {
+            const form = document.querySelector('form');
+
+            form.onsubmit = function (event) {
+                event.preventDefault();
+                const name = this.querySelector(".js_name")
+                const lastname = this.querySelector(".js_lastname")
+                const age = this.querySelector(".js_age")
+                const country = this.querySelector(".js_country")
+                const description = this.querySelector(".js_description")
+                const dataUser = {
+                    name: name.value,
+                    lastname: lastname.value,
+                    age: age.value,
+                    country: country.value,
+                    description: description.value
+                }
+
+                console.log(name.value)
+                console.log(lastname.value)
+                console.log(age.value)
+                console.log(country.value)
+                console.log(description.value)
+
+                console.log("dataUser", dataUser)
+                alert("Felicidades se grabo el registro")
+            }
+
+            const enlace = document.querySelector('a');
+
+            enlace.onclick = function (event) {
+                event.preventDefault();
+                console.log("click en enlace")
+            }
+        }
+
+        function ejemploDos() {
+    
+        }
+    </script>
 </body>
 
 </html>
