@@ -131,6 +131,14 @@
                 return a - b
             }
 
+            function multiplicacion(a, b) {
+                return a * b
+            }
+
+            function division(a, b) {
+                return a / b
+            }
+
             form.onsubmit = function (event) {
                 event.preventDefault();
                 const primerNumero = Number(this.querySelector('.js_first_number').value)
@@ -145,6 +153,16 @@
 
                     case "-": {
                         alert(`El resultado de la ${operacion} es ${resta(primerNumero, segundoNumero)}`)
+                        break;
+                    }
+
+                    case "*": {
+                        alert(`El resultado de la ${operacion} es ${multiplicacion(primerNumero, segundoNumero)}`)
+                        break;
+                    }
+
+                    case "/": {
+                        alert(`El resultado de la ${operacion} es ${division(primerNumero, segundoNumero)}`)
                         break;
                     }
                 }
