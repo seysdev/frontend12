@@ -53,18 +53,18 @@
         <a href="https://google.com">google.com</a>
 
         <br><br>
-        <form class="border p-4" action="">
+        <form class="js_form_2 border p-4" action="">
             <div class="row mb-4">
                 <div class="col">
-                    <input required type="text" class="form-control" placeholder="Ingresa numero">
+                    <input required type="text" class="js_first_number form-control" placeholder="Ingresa numero">
                 </div>
                 <div class="col">
-                    <input required type="text" class="form-control" placeholder="Ingresa numero">
+                    <input required type="text" class="js_second_number form-control" placeholder="Ingresa numero">
                 </div>
             </div>
             <div class="row mb-4">
                 <div class="col">
-                    <select required class="form-control">
+                    <select required class="js_select form-control">
                         <option value="">Selecciona la operacion</option>
                         <option value="+">+</option>
                         <option value="-">-</option>
@@ -76,7 +76,7 @@
             </div>
             <div class="row">
                 <div class="col text-center">
-                    <button type="submit" class="btn btn-primary">Sumar</button>
+                    <button type="submit" class="btn btn-primary">Operar</button>
                     <button type="reset" class="btn btn-secondary">Limpiar</button>
                 </div>
             </div>
@@ -121,8 +121,39 @@
         }
 
         function ejemploDos() {
-    
+            const form = document.querySelector('.js_form_2')
+
+            function suma(a, b) {
+                return a + b
+            }
+
+            function resta(a, b) {
+                return a - b
+            }
+
+            form.onsubmit = function (event) {
+                event.preventDefault();
+                const primerNumero = Number(this.querySelector('.js_first_number').value)
+                const segundoNumero = Number(this.querySelector('.js_second_number').value)
+                const operacion = this.querySelector('.js_select').value
+
+                switch (operacion) {
+                    case "+": {
+                        alert(`El resultado de la ${operacion} es= ${suma(primerNumero, segundoNumero)}`)
+                        break;
+                    }
+
+                    case "-": {
+                        alert(`El resultado de la ${operacion} es ${resta(primerNumero, segundoNumero)}`)
+                        break;
+                    }
+                }
+
+                this.reset()
+            }
         }
+
+        ejemploDos()
     </script>
 </body>
 
