@@ -148,9 +148,18 @@
             const button = document.querySelector('button');
             const nav = document.querySelector('.js_nav')
 
-            button.addEventListener('click', function () {
+            button.addEventListener('click', function (event) {
+                console.log(event.clientX)
+                console.log(event.clientY)
+                console.log(event.target)
+                console.log(event.currentTarget)
+                console.log(event.type)
                 this.classList.toggle('is-active')
                 nav.classList.toggle('is-active')
+            })
+
+            button.addEventListener('mouseenter', function (event) {
+                console.log(event.type)
             })
         }
 
