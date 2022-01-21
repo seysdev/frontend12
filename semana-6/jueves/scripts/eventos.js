@@ -14,7 +14,6 @@ setTimeout(() => {
   btnOne.onclick = null;
 }, 2000);
 
-
 /*ADDEVENTLISTENER*/
 const btnTwo = document.querySelector(".js_btn_two");
 function eventOne() {
@@ -48,14 +47,40 @@ tomar los valores de los input e imprimirlos con alert
 
 hola mi nombre es sebastian yabiku
 */
+function ejercicioUno() {
+  const form = document.querySelector("form");
 
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); // evita el comportamiento por defecto
+    const name = this.querySelector(".js_name"); // referencia del input
+    const lastname = this.querySelector(".js_lastname"); // referencia del input
 
+    alert(`Hola mi nombre es ${name.value} y mi apellido es ${lastname.value}`);
+  });
+}
+// ejercicioUno();
 
 /*
 EJERCICIO DOS
-eventos a usar mounseenter, mouseout
+eventos a usar mouseenter, mouseout
 
 Crear 1 funcion que cuando ingrese a un elemento le cambio el color de fondo y cuando
 salga del elemento le quite el color de fondo, para definir los colores 
 utilizar el atributo data
 */
+function ejercicioDos() {
+  const divs = document.querySelectorAll(".js_div"); // capturando todos los divs
+
+  divs.forEach(function (div) {
+    div.addEventListener("mouseenter", function () {
+      this.style.backgroundColor = this.dataset.color;
+      this.classList.add("is-active");
+    });
+
+    div.addEventListener("mouseout", function () {
+      this.style.backgroundColor = "";
+      this.classList.remove("is-active");
+    });
+  });
+}
+ejercicioDos();
