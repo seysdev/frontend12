@@ -39,6 +39,7 @@ btnTwo.addEventListener("click", function () {
 });
 
 /* 
+EJERCICIO UNO
 usar addEventListener para registrar el evento submit
 tambien tendras que utilizar .preventDefault para evitar el comportamiento
 por defecto del evento submit
@@ -46,4 +47,15 @@ por defecto del evento submit
 tomar los valores de los input e imprimirlos con alert
 
 hola mi nombre es sebastian yabiku
+*/
+
+
+
+/*
+EJERCICIO DOS
+eventos a usar mounseenter, mouseout
+
+Crear 1 funcion que cuando ingrese a un elemento le cambio el color de fondo y cuando
+salga del elemento le quite el color de fondo, para definir los colores 
+utilizar el atributo data
 */
