@@ -14,9 +14,6 @@ setTimeout(() => {
   btnOne.onclick = null;
 }, 2000);
 
-// btnOne.onclick = function () {
-//   console.log("hola mundo funcion 3");
-// };
 
 /*ADDEVENTLISTENER*/
 const btnTwo = document.querySelector(".js_btn_two");
@@ -34,8 +31,19 @@ function eventTwo() {
 
 // registrando eventos
 // addEventListener = puedo registrar mas de una funcion por evento
+
+btnTwo.addEventListener("click", eventOne);
+btnTwo.addEventListener("click", eventTwo);
 btnTwo.addEventListener("click", function () {
   console.log("funcion anonima");
 });
-btnTwo.addEventListener("click", eventOne);
-btnTwo.addEventListener("click", eventTwo);
+
+/* 
+usar addEventListener para registrar el evento submit
+tambien tendras que utilizar .preventDefault para evitar el comportamiento
+por defecto del evento submit
+
+tomar los valores de los input e imprimirlos con alert
+
+hola mi nombre es sebastian yabiku
+*/
