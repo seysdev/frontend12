@@ -50,4 +50,34 @@ function ejemploDos() {
     body.classList.replace("clase-a-remplazar", "bgblue"); // replace
   };
 }
-ejemploDos();
+// ejemploDos();
+
+function ejemploTres() {
+  button.onclick = function () {
+    const app = document.getElementById("app"); // referencial al padre conteneder
+    const div = document.createElement("div"); // cree el elemento
+    div.innerHTML = `
+      <article class="card mb-4">
+        <img src="https://picsum.photos/200/300" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">TITULO DEL ARTICULO</h5>
+            <p class="card-text">Parrafo del articulo</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        <button>Eliminar</button>
+      </article>
+    `; // al elemento le asigno el valor que tendra dentro
+
+    div.classList.add("col"); // al elemento creado le estoy agregando una clase
+    div.querySelector("button").onclick = function () {
+      //   app.removeChild(div);
+      if (confirm("Estas seguro que deseas eliminar?")) {
+        div.remove();
+      }
+    }; // le agrego el evento al boton capturandolo de manera relativa al div
+
+    app.appendChild(div); // agregando el elemento en el body
+  };
+}
+
+ejemploTres();
