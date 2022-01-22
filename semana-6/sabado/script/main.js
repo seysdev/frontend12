@@ -36,7 +36,6 @@ function addUser() {
     `;
 
     card.classList.add("col", "col-4", "mb-4");
-
     card.querySelector("button").onclick = function () {
       if (confirm("Estas seguro que deseas eliminar esta carta?")) {
         card.remove();
