@@ -10,3 +10,6 @@ Post
 Construir un formulario con los campos a guardar y despues invocar al metodo get para pintar los datos
 de su coleccion
 */
+
+// referencia
+// para pintar datos en el navegador usaran , createElement, appendChild
