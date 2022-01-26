@@ -77,3 +77,8 @@ function guardarComputadora() {
 }
 obtenerComputadoras();
 guardarComputadora();
+
+
+/*DELETE
+Agregar el verbo delete al hacer click en el boton eliminar de la tarjeta
+*/
