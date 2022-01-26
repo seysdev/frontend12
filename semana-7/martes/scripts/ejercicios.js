@@ -1,36 +1,34 @@
-// GET
+// GET - Se hace la peticion
 fetch("https://61ef3d0cd593d20017dbb393.mockapi.io/computers")
   .then(function (respuesta) {
     return respuesta.json();
   })
   .then(function (computers) {
-    console.log("computers", computers);
-    computers.forEach(function (computer) {
-      agregarNodoEnHtml(crearNodo(computer));
+    computers.forEach(function (computadora) { // se recorre coleccion
+      agregarNodoEnHtml(crearNodo(computadora)); 
     });
   });
 
-function crearNodo(computer) {
-  console.log("makeComputer", computer);
-  const element = document.createElement("article");
-  element.innerHTML = `
-    ${computer.marca}
+function crearNodo(computadora) {
+  const nodo = document.createElement("article");
+  nodo.innerHTML = `
+    <article class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Marca: ${computadora.marca}</h5>
+            <p class="card-text">Memoria: ${computadora.memoria}</p>
+            <p class="card-text">Tamanio: ${computadora.tamanio}</p>
+        </div>
+      </article>
   `;
 
-  return element;
+  return nodo;
 }
 
-function agregarNodoEnHtml(dom) {
+function agregarNodoEnHtml(nodo) {
   const app = document.getElementById("app");
-
-  app.appendChild(dom);
+  app.appendChild(nodo);
 }
 
-console.log("1");
-console.log("2");
-console.log("3");
-console.log("4");
-console.log("5");
 
 /*
 GET
