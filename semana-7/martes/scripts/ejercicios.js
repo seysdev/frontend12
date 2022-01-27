@@ -19,10 +19,38 @@ function obtenerComputadoras() {
           <div class="card-body">
               <h5  class="card-title">Marca: ${computadora.marca}</h5>
               <p class="card-text">Memoria: ${computadora.memoria}</p>
-              <p class="card-text">Tamanio: ${computadora.tamanio}</p>
+              <img style="width:100%" class="img-full" src=${computadora.photo}>
+              <button class="js_delete">ELIMINAR</button>
+              <button class="js_edit">EDITAR</button>
           </div>
         </article>
     `;
+
+    nodo.querySelector(".js_delete").onclick = function () {
+      if (confirm("Estas seguro que quieres eliminar el elemento")) {
+        fetch(
+          `https://61ef3d0cd593d20017dbb393.mockapi.io/computers/${computadora.id}`,
+          {
+            method: "DELETE",
+          }
+        )
+          .then((respuesta) => respuesta.json())
+          .then((respuesta) => {
+            console.log("respuesta", respuesta);
+            nodo.remove();
+            alert(`Se elimino correctamente el id ${computadora.id}`);
+          })
+          .catch((error) =>
+            alert(
+              `No se pudo eliminar el id ${computadora.id}, por favor intentelo despues`
+            )
+          );
+      }
+    };
+
+    nodo.querySelector(".js_edit").onclick = function () {
+      console.log("nodo", nodo);
+    };
 
     return nodo;
   }
@@ -41,7 +69,7 @@ realizar una peticion al endpoint creado con mockapi y pintar los datos en el na
 // obtenerComputadoras();
 
 /*POST */
-function guardarComputadora() {
+function registrarEventoFormulario() {
   const form = document.querySelector("form");
 
   function obtenerValores() {
@@ -76,8 +104,7 @@ function guardarComputadora() {
   };
 }
 obtenerComputadoras();
-guardarComputadora();
-
+registrarEventoFormulario();
 
 /*DELETE
 Agregar el verbo delete al hacer click en el boton eliminar de la tarjeta
