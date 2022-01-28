@@ -32,6 +32,30 @@ async function eliminarTarea(idTarea) {
   }
 }
 
+function guardarTareaEnStorage(tarea) {
+  let tareas = [];
+  if (localStorage.getItem("tareas")) {
+    tareas = [...JSON.parse(localStorage.getItem("tareas")), tarea];
+  } else {
+    tareas.push(tarea);
+  }
+
+  // guardando el objeto en formato json
+  localStorage.setItem("tareas", JSON.stringify(tareas));
+}
+
+function obtenerTareasEnStorage() {
+  return localStorage.getItem("tareas") || JSON.stringify([]);
+}
+
+function eliminarTareaEnLocalStorage(tarea) {
+  const tareasFiltradas = JSON.parse(obtenerTareasEnStorage()).filter(
+    (itemTarea) => itemTarea.task !== tarea.task
+  );
+
+  localStorage.setItem("tareas", JSON.stringify(tareasFiltradas));
+}
+
 async function todoList() {
   const form = document.querySelector("form"); // atrapando elemento formulario
 
@@ -43,13 +67,19 @@ async function todoList() {
     elementNodo.innerHTML = `
        ${tarea.task}
        <button class="js_delete">X</button>
+       <input type="checkbox" class="js_check"/>
     `;
 
     elementNodo.querySelector(".js_delete").onclick = async function () {
       if (window.confirm("Estas seguro que quieres eliminar la tarea")) {
-        await eliminarTarea(tarea.id);
+        // await eliminarTarea(tarea.id);
+        eliminarTareaEnLocalStorage(tarea);
         elementNodo.remove();
       }
+    };
+
+    elementNodo.querySelector(".js_check").onchange = function (event) {
+      console.log(this.checked);
     };
 
     return elementNodo;
@@ -69,7 +99,9 @@ async function todoList() {
   */
   async function inyectaTareasPorServicio() {
     // OBTENIENDO TAREAS Y RECORRIENDO LAS TAREAS Y CREANDOLAS
-    const tareas = await obtenerTareas();
+    // const tareas = await obtenerTareas();
+    const tareas = JSON.parse(obtenerTareasEnStorage());
+    console.log(tareas);
     tareas.forEach((tarea) => {
       inyectarElementoEnElDom(creaTarea(tarea));
     });
@@ -84,7 +116,11 @@ async function todoList() {
     const inputValueTarea = form.querySelector("input").value; // obtiene el valor del input
 
     // graba tarea en servidor
-    await guardarTarea({
+    // await guardarTarea({
+    //   task: inputValueTarea,
+    // });
+
+    guardarTareaEnStorage({
       task: inputValueTarea,
     });
 
