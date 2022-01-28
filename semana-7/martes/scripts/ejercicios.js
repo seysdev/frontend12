@@ -28,6 +28,8 @@ function obtenerComputadoras() {
         </article>
     `;
 
+    nodo.classList.add("col-sm-4");
+
     nodo.querySelector(".js_delete").onclick = function () {
       if (confirm("Estas seguro que quieres eliminar el elemento")) {
         fetch(
