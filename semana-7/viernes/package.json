@@ -1,0 +1,16 @@
+{
+  "name": "viernes",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sebastian yabiku",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "node-sass": "^7.0.1"
+  }
+}
