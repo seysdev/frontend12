@@ -1,0 +1,15 @@
+@import "../../assets/style/variables";
+
+.header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  color:#fff;
+  background: map-get($colors-branding, 'primary');
+
+  &__logo {
+    font-size: 40px;
+    font-weight:bold;
+  }
+}

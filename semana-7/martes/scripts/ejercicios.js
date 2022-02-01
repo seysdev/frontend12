@@ -1,16 +1,22 @@
-// GET - Se hace la peticion
-function obtenerComputadoras() {
+function getObtenerComputadoras(callback) {
   fetch("https://61ef3d0cd593d20017dbb393.mockapi.io/computers")
     .then(function (respuesta) {
       return respuesta.json();
     })
     .then(function (computers) {
-      document.getElementById("app").innerHTML = "";
-      computers.forEach(function (computadora) {
-        // se recorre coleccion
-        agregarNodoEnHtml(crearNodo(computadora));
-      });
+      callback(computers);
     });
+}
+
+// GET - Se hace la peticion
+function obtenerComputadoras() {
+  getObtenerComputadoras(function (computers) {
+    document.getElementById("app").innerHTML = "";
+    computers.forEach(function (computadora) {
+      // se recorre coleccion
+      agregarNodoEnHtml(crearNodo(computadora));
+    });
+  });
 
   function crearNodo(computadora) {
     console.log("computadora", computadora);
@@ -106,6 +112,7 @@ function obtenerReferenciasFormulario(form) {
     photo: form.querySelector(`.js_photo`),
   };
 }
+
 /*POST */
 function registrarEventoFormulario() {
   const form = document.querySelector(".js_form_create");

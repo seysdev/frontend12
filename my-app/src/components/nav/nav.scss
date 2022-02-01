@@ -1,0 +1,29 @@
+@import "../../assets/style/variables";
+
+.nav {
+  background: map-get($colors-branding, "complementary");
+  border-radius: 20px;
+
+  ul {
+    display: flex;
+    padding: 20px;
+  }
+
+  li {
+    margin-left: 20px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  a {
+    font-weight: bold;
+    font-size: 1.6rem;
+
+    &:hover,
+    &.is-active {
+      color: map-get($colors-branding, "primary");
+    }
+  }
+}
