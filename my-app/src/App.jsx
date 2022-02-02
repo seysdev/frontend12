@@ -15,7 +15,7 @@ import { PageExperiencia } from "./pages/experiencia/experiencia";
 import { PageContacto } from "./pages/contacto/contacto";
 import { PageNotFound } from "./pages/not-found/not-found";
 import "./assets/style/main.scss";
-
+import { Card } from "./components/card/card";
 /*
 Componente wrapper
 */

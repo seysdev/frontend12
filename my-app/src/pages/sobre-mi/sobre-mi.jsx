@@ -1,8 +1,10 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Card } from "../../components/card/card";
 import "./sobre-mi.scss";
 
 export function PageSobreMi() {
-  const portafolio = [
+  let portafolio = [
     {
       image:
         "https://i.pinimg.com/736x/33/b8/69/33b869f90619e81763dbf1fccc896d8d--lion-logo-modern-logo.jpg",
@@ -33,6 +35,17 @@ export function PageSobreMi() {
     },
   ];
 
+  const [datosPortafolio, setDatosPortafolio] = useState([]);
+
+  // ME VA DAR EL ESTADO INICIAL DEL COMPONENTE
+  useEffect(() => {
+    axios
+      .get("https://61ef3d0cd593d20017dbb393.mockapi.io/portafolio")
+      .then((respuesta) => {
+        setDatosPortafolio(respuesta.data);
+      });
+  }, []);
+
   return (
     <div className="page-sobre-mi">
       <h1>SOBRE MI</h1>
@@ -54,15 +67,21 @@ export function PageSobreMi() {
         hic. Fugit obcaecati pariatur nostrum sint praesentium quia tempora sunt
         veritatis, reiciendis quis?
       </p>
-      <div className="grid">
-        {portafolio.map((portafolio) => (
-          <Card
-            image={portafolio.image}
-            title={portafolio.title}
-            description={portafolio.description}
-          />
-        ))}
-      </div>
+      {datosPortafolio.length > 0 ? (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10">
+          {datosPortafolio.map((portafolio) => (
+            <Card
+              image={portafolio.image}
+              title={portafolio.title}
+              description={portafolio.description}
+            />
+          ))}
+        </div>
+      ) : (
+        <h2 className="text-4xl font-bold bg-red-300 p-10 rounded-xl text-center text-white">
+          NO HAY DATOS AUN
+        </h2>
+      )}
     </div>
   );
 }
