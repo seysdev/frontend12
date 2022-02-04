@@ -14,6 +14,7 @@ import { PagePortafolio } from "./pages/portafolio/portafolio";
 import { PageExperiencia } from "./pages/experiencia/experiencia";
 import { PageContacto } from "./pages/contacto/contacto";
 import { PageNotFound } from "./pages/not-found/not-found";
+import { PageConceptos } from "./pages/conceptos/conceptos";
 import "./assets/style/main.scss";
 import { Card } from "./components/card/card";
 /*
@@ -37,6 +38,9 @@ export function App() {
             </Route>
             <Route path="/contacto">
               <PageContacto />
+            </Route>
+            <Route path="/conceptos">
+              <PageConceptos />
             </Route>
             <Redirect exact from="/" to="/sobre-mi" />
             <Route path="*">
