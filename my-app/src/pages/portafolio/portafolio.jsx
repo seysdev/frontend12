@@ -1,3 +1,5 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Card } from "../../components/card/card";
 import "./portafolio.scss";
 
@@ -88,16 +90,29 @@ export function PagePortafolio() {
       url: "",
     },
   ];
+  const [portafolios, setPortafolios] = useState([])
+
+  function getPortfolio() {
+    axios.get("https://61ef3d0cd593d20017dbb393.mockapi.io/portafolio")
+    .then((respuesta) => {
+      setPortafolios(respuesta.data)
+    })
+  }
+
+  useEffect(() => {
+    getPortfolio()
+  }, [])
 
   return (
     <div className="page-portafolio">
       <h1>PORTAFOLIO</h1>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10">
-        {portafolio.map((portafolio) => (
+        {portafolios.map((portafolio) => (
           <Card
             image={portafolio.image}
             title={portafolio.title}
             description={portafolio.description}
+            id={portafolio.id}
           />
         ))}
       </div>

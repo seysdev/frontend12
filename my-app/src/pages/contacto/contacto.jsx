@@ -1,58 +1,70 @@
 import {useState} from "react";
+import axios from 'axios'
+import { useHistory } from "react-router-dom";
 
 import "./contacto.scss";
 
 export function PageContacto() {
+  let history = useHistory();
   const [form, setForm] = useState({
-    name: '',
-    lastname: '',
-    phone: '',
-    email: '',
-    country: '',
-    budget: '',
-    comment: ''
+    nombre: '',
+    apellido: '',
+    telefono: '',
+    correo: '',
+    pais: '',
+    presupuesto: '',
+    comentario: ''
   })
+
+  function saveContact() {
+    axios.post("https://61ef3d0cd593d20017dbb393.mockapi.io/contacto", form)
+    .then(() => {
+      alert("se guardo correctamente")
+      history.push("sobre-mi")
+    }).catch(() => {
+      alert("No se pudo guardar, intentelo denuevo")
+    })
+  }
 
   return (
     <div className="page-contacto">
       <form onSubmit={(event) => {
         event.preventDefault()
-
-        console.log("se  envia al back end!!!!", form)
+        saveContact()
       }}>
         <div class="sm:grid sm:grid-cols-2 sm:gap-10">
           <input
             type="text"
             placeholder="Nombre"
             className="mb-8 sm:mb-0 w-full p-4 border border-gray-500 rounded-xl focus:outline-none focus:border-gray-900"
-            value={form.name}
+            value={form.nombre}
             required
             onChange={(event) => {
               // console.log(event.target.value)
-              // const copyObject = {...form, name: event.target.value}
+              // const copyObject = {...form, nombre: event.target.value}
               // setForm(copyObject)
 
-              setForm((state) => ({...state, name: event.target.value}))
+              setForm((state) => ({...state, nombre: event.target.value}))
             }}
           />
           <input
             type="text"
             placeholder="Apellido"
             className="mb-8 sm:mb-0 w-full p-4 border border-gray-500 rounded-xl focus:outline-none focus:border-gray-900"
-            value={form.lastname}
+            value={form.apellido}
             required
             onChange={(event) => {
-              setForm((state) => ({...state, lastname: event.target.value}))
+              setForm((state) => ({...state, apellido: event.target.value}))
             }}
           />
           <input
             type="text"
             placeholder="Telefono"
             className="mb-8 sm:mb-0 w-full p-4 border border-gray-500 rounded-xl focus:outline-none focus:border-gray-900"
-            value={form.phone}
+            value={form.telefono}
             required
             onChange={(event) => {
-              setForm((state) => ({...state, phone: event.target.value}))
+              setForm((state) => ({...state, telefono: event.target.value}))
             }}
           />
           <input
@@ -60,17 +72,17 @@ export function PageContacto() {
             placeholder="Correo"
             className="mb-8 sm:mb-0 w-full p-4 border border-gray-500 rounded-xl focus:outline-none focus:border-gray-900"
             required
-            value={form.email}
+            value={form.correo}
             onChange={(event) => {
-              setForm((state) => ({...state, email: event.target.value}))
+              setForm((state) => ({...state, correo: event.target.value}))
             }}
           />
           <select
             className="mb-8 sm:mb-0 w-full p-4 border border-gray-500 rounded-xl focus:outline-none focus:border-gray-900"
             required
-            value={form.country}
+            value={form.pais}
             onChange={(event) => {
-              setForm((state) => ({...state, country: event.target.value}))
+              setForm((state) => ({...state, pais: event.target.value}))
             }}
           >
             <option value="">Seleccionar pais</option>
@@ -82,9 +94,9 @@ export function PageContacto() {
           <select
             className="mb-8 sm:mb-0 w-full p-4 border border-gray-500 rounded-xl focus:outline-none focus:border-gray-900"
             required
-            value={form.budget}
+            value={form.presupuesto}
             onChange={(event) => {
-              setForm((state) => ({...state, budget: event.target.value}))
+              setForm((state) => ({...state, presupuesto: event.target.value}))
             }}
           >
             <option value="">Presupuesto</option>
@@ -97,9 +109,9 @@ export function PageContacto() {
             placeholder="Agrega un comentario"
             rows="10"
             required
-            value={form.comment}
+            value={form.comentario}
             onChange={(event) => {
-              setForm((state) => ({...state, comment: event.target.value}))
+              setForm((state) => ({...state, comentario: event.target.value}))
             }}
           ></textarea>
         </div>

@@ -60,7 +60,7 @@ export function PageExperiencia() {
           tempora. Molestias qui blanditiis porro ducimus.
         </p>
       </div>
-      <div className="grid">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10">
         {dataPercentage.map((item) => (
           <Percentage label={item.label} percentage={item.percentage} />
         ))}
