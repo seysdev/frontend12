@@ -1,6 +1,7 @@
 import {useState} from "react";
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
+import Snackbar from '@mui/material/Snackbar';
 
 import "./contacto.scss";
 
@@ -15,11 +16,12 @@ export function PageContacto() {
     presupuesto: '',
     comentario: ''
   })
+  const [open, setOpen] = useState(false);
 
   function saveContact() {
     axios.post("https://61ef3d0cd593d20017dbb393.mockapi.io/contacto", form)
     .then(() => {
-      alert("se guardo correctamente")
+      setOpen(true);
       history.push("sobre-mi")
     }).catch(() => {
       alert("No se pudo guardar, intentelo denuevo")
@@ -32,7 +34,7 @@ export function PageContacto() {
         event.preventDefault()
         saveContact()
       }}>
-        <div class="sm:grid sm:grid-cols-2 sm:gap-10">
+        <div className="sm:grid sm:grid-cols-2 sm:gap-10">
           <input
             type="text"
             placeholder="Nombre"
@@ -121,6 +123,11 @@ export function PageContacto() {
           </button>
         </div>
       </form>
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        message="Se guardo registro"
+      />
     </div>
   );
 }

@@ -123,6 +123,7 @@ export function PageSobreMi() {
               image={portafolio.image}
               title={portafolio.title}
               description={portafolio.description}
+              id={portafolio.id}
             />
           ))}
         </div>
