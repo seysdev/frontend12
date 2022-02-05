@@ -40,10 +40,6 @@ export function PageContacto() {
             value={form.nombre}
             required
             onChange={(event) => {
-              // console.log(event.target.value)
-              // const copyObject = {...form, nombre: event.target.value}
-              // setForm(copyObject)
-
               setForm((state) => ({...state, nombre: event.target.value}))
             }}
           />

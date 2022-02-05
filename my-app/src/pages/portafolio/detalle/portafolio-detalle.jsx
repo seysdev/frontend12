@@ -21,6 +21,7 @@ export function PagePortafolioDetalle() {
     }
 
     useEffect(() => {
+        console.log("cuando inicializa el compnente!!!", params.id)
         getDetailPortafolio(params.id)
     }, [])
 
