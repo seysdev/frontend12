@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { Button } from 'antd';
 import "./card.scss";
 export function Card(props) {
   const { image, title, description, id } = props;
@@ -12,6 +13,7 @@ export function Card(props) {
         <div className="card__text">
           <h2>{title}</h2>
           <p>{description}</p>
+          <Button block={true}>Ir al detalle</Button>
         </div>
       </Link>
     </div>

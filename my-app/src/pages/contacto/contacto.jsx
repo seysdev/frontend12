@@ -1,9 +1,19 @@
 import {useState} from "react";
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
-
+import { Form, Input, Button, Select } from 'antd';
+import { Carousel } from 'antd';
 import "./contacto.scss";
+import { Collapse } from 'antd';
 
+
+const text = `
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;
+const { Panel } = Collapse;
+const { Option } = Select;
 export function PageContacto() {
   let history = useHistory();
   const [form, setForm] = useState({
@@ -16,7 +26,15 @@ export function PageContacto() {
     comentario: ''
   })
 
-  function saveContact() {
+  const contentStyle = {
+    height: '160px',
+    color: '#fff',
+    lineHeight: '160px',
+    textAlign: 'center',
+    background: '#364d79',
+  };
+
+  function saveContact(form) {
     axios.post("https://61ef3d0cd593d20017dbb393.mockapi.io/contacto", form)
     .then(() => {
       alert("se guardo correctamente")
@@ -28,7 +46,7 @@ export function PageContacto() {
 
   return (
     <div className="page-contacto">
-      <form onSubmit={(event) => {
+      {/* <form onSubmit={(event) => {
         event.preventDefault()
         saveContact()
       }}>
@@ -120,7 +138,151 @@ export function PageContacto() {
             Guardar
           </button>
         </div>
-      </form>
+      </form> */}
+      <Form  
+        name="basic"
+        labelCol={{
+          span: 8,
+        }}
+        wrapperCol={{
+          span: 16,
+        }}
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={(values) => {
+          console.log("valores", values)
+          saveContact(values)
+        }}
+        onFinishFailed={(errorInfo) => {
+          console.log('Failed:', errorInfo);
+        }}
+        autoComplete="off"
+      >
+        <Form.Item
+          label="Nombre"
+          name="nombre"
+          rules={[
+            {
+              required: true,
+              message: 'Ingresa el nombre por favor',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="Apellido"
+          name="apellido"
+          rules={[
+            {
+              required: true,
+              message: 'Ingresa el apellido por favor',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="Telefono"
+          name="telefono"
+          rules={[
+            {
+              required: true,
+              message: 'Ingresa el telefono por favor',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="Correo"
+          name="correo"
+          rules={[
+            {
+              required: true,
+              message: 'Ingresa el correo por favor',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="Pais"
+          name="pais"
+          rules={[
+            {
+              required: true,
+              message: 'Ingresa el pais por favor',
+            },
+          ]}
+        >
+          <Select
+            onChange={(value) => {console.log("value", value)}}
+            allowClear
+          >
+            <Option value="peru">Peru</Option>
+            <Option value="argentina">Argentina</Option>
+            <Option value="brasil">Brasil</Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          label="Presupuesto"
+          name="presupuesto"
+          rules={[
+            {
+              required: true,
+              message: 'Ingresa el presupuesto por favor',
+            },
+          ]}
+        >
+          <Select
+            onChange={(value) => {console.log("value", value)}}
+            allowClear
+          >
+            <Option value="500-1000">500 a 1000</Option>
+            <Option value="1000-1500">1000 a 1500</Option>
+            <Option value="1500-2000">1500 a 2000</Option>
+          </Select>
+        </Form.Item>
+        <div
+          className="flex justify-center"
+        >
+          <Button type="secondary" htmlType="submit">
+            Registrar
+          </Button>
+        </div>
+      </Form>
+      <Carousel afterChange={(a, b, c) => {
+          console.log(a, b, c);
+      }}>
+        <div>
+          <h3 style={contentStyle}>1</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>2</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>3</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>4</h3>
+        </div>
+      </Carousel>
+      <br /><br />
+      <Collapse defaultActiveKey={['1']} onChange={(key) => {
+        console.log("key", key)
+      }}>
+        <Panel header="This is panel header 1" key="1">
+          <p>{text}</p>
+        </Panel>
+        <Panel header="This is panel header 2" key="2">
+          <p>{text}</p>
+        </Panel>
+        <Panel header="This is panel header 3" key="3">
+          <p>{text}</p>
+        </Panel>
+      </Collapse>
     </div>
   );
 }
