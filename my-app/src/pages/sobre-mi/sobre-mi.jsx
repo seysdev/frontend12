@@ -69,10 +69,8 @@ export function PageSobreMi() {
   ]);
   const [isLoading, setIsLoading] = useState(true);
 
-
   // ME VA DAR EL ESTADO INICIAL DEL COMPONENTE
   useEffect(() => {
-    console.log("se inyecto el componente!!!");
     axios
       .get("https://61ef3d0cd593d20017dbb393.mockapi.io/portafolio")
       .then((respuesta) => {
@@ -123,6 +121,7 @@ export function PageSobreMi() {
               image={portafolio.image}
               title={portafolio.title}
               description={portafolio.description}
+              id={portafolio.id}
             />
           ))}
         </div>

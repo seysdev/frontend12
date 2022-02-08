@@ -1,0 +1,14 @@
+.dropdown {
+  position: absolute;
+  padding: 20px 10px;
+  background: green;
+  border-radius: 10px;
+
+  li {
+    margin-bottom: 14px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
