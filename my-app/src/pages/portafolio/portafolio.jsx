@@ -90,18 +90,31 @@ export function PagePortafolio() {
       url: "",
     },
   ];
-  const [portafolios, setPortafolios] = useState([])
+  const [portafolios, setPortafolios] = useState([]);
 
   function getPortfolio() {
-    axios.get("https://61ef3d0cd593d20017dbb393.mockapi.io/portafolio")
-    .then((respuesta) => {
-      setPortafolios(respuesta.data)
-    })
+    axios
+      .get("https://61ef3d0cd593d20017dbb393.mockapi.io/portafolio")
+      .then((respuesta) => {
+        setPortafolios(respuesta.data);
+      });
+  }
+
+  function deletePortafolio(id) {
+    axios
+      .delete(`https://61ef3d0cd593d20017dbb393.mockapi.io/portafolio/${id}`)
+      .then(() => {
+        alert("Se elimino correctamente");
+        getPortfolio();
+      })
+      .catch(() => {
+        alert("No se pudo eliminar el elemento, intentalo mas tarde");
+      });
   }
 
   useEffect(() => {
-    getPortfolio()
-  }, [])
+    getPortfolio();
+  }, []);
 
   return (
     <div className="page-portafolio">
@@ -109,10 +122,16 @@ export function PagePortafolio() {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10">
         {portafolios.map((portafolio) => (
           <Card
+            key={portafolio.id}
             image={portafolio.image}
             title={portafolio.title}
             description={portafolio.description}
             id={portafolio.id}
+            onDelete={(id) => {
+              window.confirm("Estas seguro que deseas eliminar") &&
+                deletePortafolio(id);
+              console.log("eliminar!!!", id);
+            }}
           />
         ))}
       </div>
