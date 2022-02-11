@@ -2,9 +2,12 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Dropdown } from "../dropdown/dropdown";
 import "./nav.scss";
+import { useSelector } from "react-redux";
 
 export function Nav() {
   const [togglePortafolio, setTogglePortafolio] = useState(false);
+  const [toggleLogin, setToggleLogin] = useState(false);
+  const user = useSelector((state) => state.user);
 
   return (
     <nav className="nav">
@@ -45,6 +48,33 @@ export function Nav() {
             Contacto
           </NavLink>
         </li>
+        {user ? (
+          <li>
+            <span
+              onClick={() => {
+                setToggleLogin(!toggleLogin);
+              }}
+            >
+              Bienvenido {user.name}
+            </span>
+            {toggleLogin && (
+              <Dropdown
+                items={[
+                  {
+                    url: "/logout",
+                    text: "logout",
+                  },
+                ]}
+              />
+            )}
+          </li>
+        ) : (
+          <li>
+            <NavLink to="/login" activeClassName="is-active">
+              Login
+            </NavLink>
+          </li>
+        )}
       </ul>
     </nav>
   );

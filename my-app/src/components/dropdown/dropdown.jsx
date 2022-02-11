@@ -6,7 +6,7 @@ export function Dropdown(props) {
   return (
     <ul className="dropdown">
       {items.map((item) => (
-        <li>
+        <li cb={item.cb}>
           <NavLink to={item.url} activeClassName="is-active">
             {item.text}
           </NavLink>

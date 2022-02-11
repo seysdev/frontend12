@@ -19,53 +19,64 @@ import { PageContacto } from "./pages/contacto/contacto";
 import { PageNotFound } from "./pages/not-found/not-found";
 import { PageConceptos } from "./pages/conceptos/conceptos";
 import { PageTodoList } from "./pages/todo-list/todo-list";
+import { PageLogin } from "./pages/login/login";
+import { PageLogout } from "./pages/logout/logout";
 import "./assets/style/main.scss";
-import { Card } from "./components/card/card";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 /*
 Componente wrapper
 */
 export function App() {
   return (
-    <Router>
-      <div className="wrapper">
-        <Header />
-        <Main>
-          <Switch>
-            <Route path="/sobre-mi">
-              <PageSobreMi />
-            </Route>
-            <Route exact path="/portafolio">
-              <PagePortafolio />
-            </Route>
-            <Route path="/portafolio/crear">
-              <PagePortafolioCrear />
-            </Route>
-            <Route path="/portafolio/editar/:id">
-              <PagePortafolioEditar />
-            </Route>
-            <Route path="/portafolio/:id">
-              <PagePortafolioDetalle />
-            </Route>
-            <Route path="/experiencia">
-              <PageExperiencia />
-            </Route>
-            <Route path="/contacto">
-              <PageContacto />
-            </Route>
-            <Route path="/conceptos">
-              <PageConceptos />
-            </Route>
-            <Route path="/todo-list">
-              <PageTodoList />
-            </Route>
-            <Redirect exact from="/" to="/sobre-mi" />
-            <Route path="*">
-              <PageNotFound />
-            </Route>
-          </Switch>
-        </Main>
-        <Footer />
-      </div>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <div className="wrapper">
+          <Header />
+          <Main>
+            <Switch>
+              <Route path="/sobre-mi">
+                <PageSobreMi />
+              </Route>
+              <Route exact path="/portafolio">
+                <PagePortafolio />
+              </Route>
+              <Route path="/portafolio/crear">
+                <PagePortafolioCrear />
+              </Route>
+              <Route path="/portafolio/editar/:id">
+                <PagePortafolioEditar />
+              </Route>
+              <Route path="/portafolio/:id">
+                <PagePortafolioDetalle />
+              </Route>
+              <Route path="/experiencia">
+                <PageExperiencia />
+              </Route>
+              <Route path="/contacto">
+                <PageContacto />
+              </Route>
+              <Route path="/conceptos">
+                <PageConceptos />
+              </Route>
+              <Route path="/todo-list">
+                <PageTodoList />
+              </Route>
+              <Route path="/login">
+                <PageLogin />
+              </Route>
+              <Route path="/logout">
+                <PageLogout />
+              </Route>
+              <Redirect exact from="/" to="/sobre-mi" />
+              <Route path="*">
+                <PageNotFound />
+              </Route>
+            </Switch>
+          </Main>
+          <Footer />
+        </div>
+      </Router>
+    </Provider>
   );
 }

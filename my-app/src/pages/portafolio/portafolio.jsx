@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Card } from "../../components/card/card";
 import "./portafolio.scss";
 
@@ -91,6 +92,7 @@ export function PagePortafolio() {
     },
   ];
   const [portafolios, setPortafolios] = useState([]);
+  const counter = useSelector((state) => state.counter);
 
   function getPortfolio() {
     axios
@@ -118,7 +120,7 @@ export function PagePortafolio() {
 
   return (
     <div className="page-portafolio">
-      <h1>PORTAFOLIO</h1>
+      <h1>PORTAFOLIO {counter}</h1>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10">
         {portafolios.map((portafolio) => (
           <Card

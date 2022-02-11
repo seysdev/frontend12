@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Card } from "../../components/card/card";
 import "./sobre-mi.scss";
@@ -40,6 +41,8 @@ export function PageSobreMi() {
   const [datosPortafolio, setDatosPortafolio] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const counter = useSelector((state) => state.counter);
+
   // ME VA DAR EL ESTADO INICIAL DEL COMPONENTE
   useEffect(() => {
     axios
@@ -58,7 +61,7 @@ export function PageSobreMi() {
 
   return !isLoading ? (
     <div className="page-sobre-mi">
-      <h1>SOBRE MI</h1>
+      <h1>SOBRE MI {counter}</h1>
       <button
         onClick={() => {
           console.log("click!!");
@@ -87,8 +90,9 @@ export function PageSobreMi() {
       </p>
       {datosPortafolio.length > 0 ? (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10">
-          {datosPortafolio.map((portafolio) => (
+          {datosPortafolio.map((portafolio, id) => (
             <Card
+              key={id}
               image={portafolio.image}
               title={portafolio.title}
               description={portafolio.description}
