@@ -2,11 +2,9 @@ import { NavLink } from "react-router-dom";
 import { Nav } from "../nav/nav";
 import "./header.scss";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 
 export function Header() {
   const dispatch = useDispatch();
-
 
   return (
     <header className="header">
