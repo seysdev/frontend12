@@ -41,7 +41,8 @@ export function PageSobreMi() {
   const [datosPortafolio, setDatosPortafolio] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const counter = useSelector((state) => state.counter);
+  // const counter = useSelector((state) => state.counter);
+  const isLogin = useSelector((state) => state.auth.isLogin);
 
   // ME VA DAR EL ESTADO INICIAL DEL COMPONENTE
   useEffect(() => {
@@ -55,13 +56,9 @@ export function PageSobreMi() {
       });
   }, []);
 
-  useEffect(() => {
-    console.log("se modifico datos portafolio!!");
-  }, [datosPortafolio]);
-
   return !isLoading ? (
     <div className="page-sobre-mi">
-      <h1>SOBRE MI {counter}</h1>
+      <h1>SOBRE MI </h1>
       <button
         onClick={() => {
           console.log("click!!");
@@ -97,6 +94,7 @@ export function PageSobreMi() {
               title={portafolio.title}
               description={portafolio.description}
               id={portafolio.id}
+              isLogin={isLogin}
             />
           ))}
         </div>

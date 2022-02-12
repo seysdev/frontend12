@@ -4,6 +4,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { Header } from "./components/header/header";
 import { Main } from "./components/main/main";
@@ -24,10 +25,12 @@ import { PageLogout } from "./pages/logout/logout";
 import "./assets/style/main.scss";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+import history from "./utils/history/history";
 /*
 Componente wrapper
 */
 export function App() {
+  console.log("history", history);
   return (
     <Provider store={store}>
       <Router>
@@ -41,9 +44,23 @@ export function App() {
               <Route exact path="/portafolio">
                 <PagePortafolio />
               </Route>
-              <Route path="/portafolio/crear">
-                <PagePortafolioCrear />
-              </Route>
+              {store.getState().auth.isLogin ? (
+                <Route path="/portafolio/crear">
+                  <PagePortafolioCrear />
+                </Route>
+              ) : (
+                history.push("/login")
+              )}
+              {/* <Route
+                path="/portafolio/crear"
+                render={(routeProps) => {
+                  return store.getState().auth.isLogin ? (
+                    <PagePortafolioCrear />
+                  ) : (
+                    routeProps.history.push("/login")
+                  );
+                }}
+              /> */}
               <Route path="/portafolio/editar/:id">
                 <PagePortafolioEditar />
               </Route>

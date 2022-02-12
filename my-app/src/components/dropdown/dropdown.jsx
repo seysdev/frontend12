@@ -5,8 +5,8 @@ export function Dropdown(props) {
 
   return (
     <ul className="dropdown">
-      {items.map((item) => (
-        <li cb={item.cb}>
+      {items.map((item, id) => (
+        <li cb={item.cb} key={id}>
           <NavLink to={item.url} activeClassName="is-active">
             {item.text}
           </NavLink>

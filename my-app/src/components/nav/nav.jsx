@@ -7,7 +7,8 @@ import { useSelector } from "react-redux";
 export function Nav() {
   const [togglePortafolio, setTogglePortafolio] = useState(false);
   const [toggleLogin, setToggleLogin] = useState(false);
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.auth.user);
+  const isLogin = useSelector((state) => state.auth.isLogin);
 
   return (
     <nav className="nav">
@@ -22,14 +23,16 @@ export function Nav() {
             activeClassName="is-active"
             to="/portafolio"
             onClick={(e) => {
-              e.preventDefault();
-              e.target.classList.toggle("is-active");
-              setTogglePortafolio(!togglePortafolio);
+              if (isLogin) {
+                e.preventDefault();
+                e.target.classList.toggle("is-active");
+                setTogglePortafolio(!togglePortafolio);
+              }
             }}
           >
             Portafolio
           </NavLink>
-          {togglePortafolio && (
+          {isLogin && togglePortafolio && (
             <Dropdown
               items={[
                 { url: "/portafolio", text: "Portafolio" },
