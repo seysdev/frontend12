@@ -97,7 +97,7 @@ export function PagePortafolio() {
 
   function getPortfolio() {
     axios
-      .get("https://61ef3d0cd593d20017dbb393.mockapi.io/portafolio")
+      .get("http://localhost:3000/portafolio")
       .then((respuesta) => {
         setPortafolios(respuesta.data);
       });
