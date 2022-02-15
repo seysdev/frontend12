@@ -13,7 +13,7 @@ export function Header() {
           LOGO
         </NavLink>
         <Nav />
-        {/* <button
+        <button
           className="bg-lime-300 p-4 rounded"
           onClick={() => {
             console.log("incrementar");
@@ -35,7 +35,7 @@ export function Header() {
           }}
         >
           DECREMENTAR
-        </button> */}
+        </button>
       </div>
     </header>
   );

@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import {
@@ -31,8 +30,10 @@ export function PagePortafolio() {
     }
   }
 
-  useEffect(async () => {
-    await getPortfolio();
+  useEffect(() => {
+    (async () => {
+      await getPortfolio();
+    })();
   }, []);
 
   return (

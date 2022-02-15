@@ -26,7 +26,7 @@ export function PagePortafolioEditar() {
 
   async function actualizarPortafolio(id, form) {
     try {
-      const { data } = await updatePortafolioServices(id, form);
+      await updatePortafolioServices(id, form);
       alert("SE EDITO CORRECTAMENTE");
       history.push("/portafolio");
     } catch (e) {
@@ -37,6 +37,7 @@ export function PagePortafolioEditar() {
   useEffect(() => {
     // estado inicial
     getPortafolio(params.id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

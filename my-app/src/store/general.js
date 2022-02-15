@@ -1,5 +1,6 @@
 const initialState = {
   loader: false,
+  count: 0,
 };
 
 export function reducerGeneral(state = initialState, action) {
@@ -8,6 +9,20 @@ export function reducerGeneral(state = initialState, action) {
       return {
         ...state,
         loader: action.payload,
+      };
+    }
+
+    case "INCREMENT": {
+      return {
+        ...state,
+        count: state.count + 1,
+      };
+    }
+
+    case "DECREMENT": {
+      return {
+        ...state,
+        count: state.count - 1,
       };
     }
 

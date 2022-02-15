@@ -1,36 +1,12 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import { createStateSyncMiddleware } from "redux-state-sync";
+import { composeWithDevTools } from "redux-devtools-extension";
+
 import { reducerAuth } from "./auth";
 import { reducerPortafolio } from "./portafolio";
 import { reducerGeneral } from "./general";
-// /*ESTADO INICIAL*/
-// const initialState = {
-//   counter: 0,
-//   isLogin: false,
-//   user: null,
-// };
-
-// /*FUNCION REDUCER */
-// function mainReducer(state = initialState, action) {
-//   switch (action.type) {
-//     case "INCREMENT": {
-//       return {
-//         ...state,
-//         counter: state.counter + 1,
-//       };
-//     }
-
-//     case "DECREMENT": {
-//       return {
-//         ...state,
-//         counter: state.counter - 1,
-//       };
-//     }
-
-//     default: {
-//       return state;
-//     }
-//   }
-// }
 
 const allReducer = combineReducers({
   auth: reducerAuth,
@@ -38,7 +14,23 @@ const allReducer = combineReducers({
   general: reducerGeneral,
 });
 
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, allReducer);
+
 export const store = createStore(
-  allReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  persistedReducer,
+
+  composeWithDevTools(
+    applyMiddleware(
+      createStateSyncMiddleware({
+        blacklist: ["persist/PERSIST", "persist/REHYDRATE"],
+      })
+    )
+  )
 );
+
+export const persistor = persistStore(store);

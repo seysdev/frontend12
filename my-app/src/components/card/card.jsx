@@ -12,7 +12,6 @@ export function Card(props) {
   let history = useHistory();
 
   function redireccionarAEditar(id) {
-    console.log("click redireccionarAEditar!!", id);
     history.push(`/portafolio/editar/${id}`);
   }
 
@@ -30,7 +29,7 @@ export function Card(props) {
       )}
       <Link to={`portafolio/${id}`}>
         <figure className="card__figure">
-          <img src={image} />
+          <img src={image} alt="" />
         </figure>
         <div className="card__text">
           <h2>{title}</h2>

@@ -1,10 +1,9 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Card } from "../../components/card/card";
-import "./sobre-mi.scss";
 import { getPortafolioServices } from "services/portafolio";
+import "./sobre-mi.scss";
 
 export function PageSobreMi() {
   let history = useHistory();
@@ -12,7 +11,7 @@ export function PageSobreMi() {
   const [datosPortafolio, setDatosPortafolio] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // const counter = useSelector((state) => state.counter);
+  const count = useSelector((state) => state.general.count);
   const isLogin = useSelector((state) => state.auth.isLogin);
 
   async function getPortafolio() {
@@ -25,15 +24,18 @@ export function PageSobreMi() {
   }
 
   // ME VA DAR EL ESTADO INICIAL DEL COMPONENTE
-  useEffect(async () => {
-    const data = await getPortafolio();
-    setIsLoading(false);
-    setDatosPortafolio(data);
+  useEffect(() => {
+    (async () => {
+      const data = await getPortafolio();
+      setIsLoading(false);
+      setDatosPortafolio(data);
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return !isLoading ? (
     <div className="page-sobre-mi">
-      <h1>SOBRE MI </h1>
+      <h1>SOBRE MI {count}</h1>
       <button
         onClick={() => {
           history.push("experiencia");
