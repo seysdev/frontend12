@@ -10,6 +10,7 @@ import { Header } from "./components/header/header";
 import { Main } from "./components/main/main";
 import { Footer } from "./components/footer/footer";
 
+
 import { PageSobreMi } from "./pages/sobre-mi/sobre-mi";
 import { PagePortafolio } from "./pages/portafolio/portafolio";
 import { PagePortafolioCrear } from "./pages/portafolio/crear/portafolio-crear";
@@ -30,7 +31,6 @@ import history from "./utils/history/history";
 Componente wrapper
 */
 export function App() {
-  console.log("history", history);
   return (
     <Provider store={store}>
       <Router>
@@ -94,6 +94,7 @@ export function App() {
           <Footer />
         </div>
       </Router>
+      
     </Provider>
   );
 }

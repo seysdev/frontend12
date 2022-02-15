@@ -1,6 +1,7 @@
 import { createStore, combineReducers } from "redux";
 import { reducerAuth } from "./auth";
 import { reducerPortafolio } from "./portafolio";
+import { reducerGeneral } from "./general";
 // /*ESTADO INICIAL*/
 // const initialState = {
 //   counter: 0,
@@ -34,6 +35,7 @@ import { reducerPortafolio } from "./portafolio";
 const allReducer = combineReducers({
   auth: reducerAuth,
   portafolio: reducerPortafolio,
+  general: reducerGeneral,
 });
 
 export const store = createStore(

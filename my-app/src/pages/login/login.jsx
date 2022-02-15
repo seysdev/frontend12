@@ -1,33 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { getLoginServices } from "services/auth";
 
 export function PageLogin() {
-  const usuarios = [
-    {
-      user: "admin",
-      password: "123456",
-      response: {
-        data: {
-          name: "Sebastian",
-          lastname: "Yabiku",
-          age: 35,
-        },
-      },
-    },
-    {
-      user: "admin2",
-      password: "123456",
-      response: {
-        data: {
-          name: "Jose",
-          lastname: "Yabiku",
-          age: 33,
-        },
-      },
-    },
-  ];
-
   const [formLogin, setFormLogin] = useState({
     user: "",
     password: "",
@@ -40,8 +16,19 @@ export function PageLogin() {
     return users.filter((dataUser) => dataUser.user === user.user)[0];
   }
 
-  function onSubmit(evt) {
+  async function getLogin() {
+    try {
+      const { data } = await getLoginServices();
+
+      return data;
+    } catch (e) {
+      console.log("error!!!!");
+    }
+  }
+
+  async function onSubmit(evt) {
     evt.preventDefault();
+    const usuarios = await getLogin();
     const response = userExist(formLogin, usuarios)?.response;
     const isLogin = userExist(formLogin, usuarios)?.response;
 

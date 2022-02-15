@@ -1,37 +1,39 @@
-import {useState} from "react";
-import axios from 'axios'
+import { useState } from "react";
+import axios from "axios";
 import { useHistory } from "react-router-dom";
-
+import { saveContactService } from "services/contact";
 import "./contacto.scss";
 
 export function PageContacto() {
   let history = useHistory();
   const [form, setForm] = useState({
-    nombre: '',
-    apellido: '',
-    telefono: '',
-    correo: '',
-    pais: '',
-    presupuesto: '',
-    comentario: ''
-  })
+    nombre: "",
+    apellido: "",
+    telefono: "",
+    correo: "",
+    pais: "",
+    presupuesto: "",
+    comentario: "",
+  });
 
-  function saveContact() {
-    axios.post("https://61ef3d0cd593d20017dbb393.mockapi.io/contacto", form)
-    .then(() => {
-      alert("se guardo correctamente")
-      history.push("sobre-mi")
-    }).catch(() => {
-      alert("No se pudo guardar, intentelo denuevo")
-    })
+  async function saveContact(form) {
+    try {
+      await saveContactService(form);
+      alert("se guardo correctamente");
+      history.push("sobre-mi");
+    } catch (e) {
+      alert("No se pudo guardar, intentelo denuevo");
+    }
   }
 
   return (
     <div className="page-contacto">
-      <form onSubmit={(event) => {
-        event.preventDefault()
-        saveContact()
-      }}>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          saveContact(form);
+        }}
+      >
         <div class="sm:grid sm:grid-cols-2 sm:gap-10">
           <input
             type="text"
@@ -40,7 +42,7 @@ export function PageContacto() {
             value={form.nombre}
             required
             onChange={(event) => {
-              setForm((state) => ({...state, nombre: event.target.value}))
+              setForm((state) => ({ ...state, nombre: event.target.value }));
             }}
           />
           <input
@@ -50,7 +52,7 @@ export function PageContacto() {
             value={form.apellido}
             required
             onChange={(event) => {
-              setForm((state) => ({...state, apellido: event.target.value}))
+              setForm((state) => ({ ...state, apellido: event.target.value }));
             }}
           />
           <input
@@ -60,7 +62,7 @@ export function PageContacto() {
             value={form.telefono}
             required
             onChange={(event) => {
-              setForm((state) => ({...state, telefono: event.target.value}))
+              setForm((state) => ({ ...state, telefono: event.target.value }));
             }}
           />
           <input
@@ -70,7 +72,7 @@ export function PageContacto() {
             required
             value={form.correo}
             onChange={(event) => {
-              setForm((state) => ({...state, correo: event.target.value}))
+              setForm((state) => ({ ...state, correo: event.target.value }));
             }}
           />
           <select
@@ -78,7 +80,7 @@ export function PageContacto() {
             required
             value={form.pais}
             onChange={(event) => {
-              setForm((state) => ({...state, pais: event.target.value}))
+              setForm((state) => ({ ...state, pais: event.target.value }));
             }}
           >
             <option value="">Seleccionar pais</option>
@@ -92,7 +94,10 @@ export function PageContacto() {
             required
             value={form.presupuesto}
             onChange={(event) => {
-              setForm((state) => ({...state, presupuesto: event.target.value}))
+              setForm((state) => ({
+                ...state,
+                presupuesto: event.target.value,
+              }));
             }}
           >
             <option value="">Presupuesto</option>
@@ -107,7 +112,10 @@ export function PageContacto() {
             required
             value={form.comentario}
             onChange={(event) => {
-              setForm((state) => ({...state, comentario: event.target.value}))
+              setForm((state) => ({
+                ...state,
+                comentario: event.target.value,
+              }));
             }}
           ></textarea>
         </div>

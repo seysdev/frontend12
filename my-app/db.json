@@ -1,25 +1,13 @@
 {
   "portafolio": [
     {
-      "title": "Dynamic Tactics Engineer",
-      "description": "Soluta tempora asperiores ducimus. Sunt quae voluptatem et sapiente dolorem. Nostrum exercitationem veniam vel est.\n \rVoluptas commodi sint ut porro illum. Repellendus quod qui aliquam in magni voluptatem. Qui aut fuga. Nihil sed quam nemo eius maiores dolorem sapiente. Recusandae quia non rem vel vitae dolores quia.\n \rEt voluptatibus quis consectetur eveniet placeat veniam. Est porro officiis assumenda. Molestiae est facilis inventore illum exercitationem. Sequi voluptas accusamus.",
-      "image": "http://placeimg.com/640/480/technics",
-      "id": "3"
-    },
-    {
-      "title": "SEBASTIAN!!!!!",
-      "description": "Adipisci commodi temporibus tenetur hic at molestiae commodi vero. Quia dicta tempora eligendi nihil ea ut. Libero tenetur officia quasi libero voluptate ab veniam cupiditate. Vitae mollitia vero molestiae provident sit est dolor inventore. Rem et placeat.\n \rQui consequatur delectus itaque qui enim ab quibusdam. Repudiandae vel et modi et est autem sit. Sunt laboriosam suscipit rerum ut magni. Et libero illo. Quia quia autem tempora quos adipisci odit aut qui.\n \rLibero est sit sapiente ullam laboriosam tempora velit natus eos. Omnis sit aliquam. Ut dicta veniam excepturi totam tempora. Impedit eum aut occaecati blanditiis dicta iure repellendus iusto. Neque at laudantium assumenda ratione.",
-      "image": "http://placeimg.com/640/480/technics",
-      "id": "4"
-    },
-    {
       "title": "Regional Mobility Designer",
       "description": "Et eos sit cum sit et. Quas quia voluptas et sed ut fugiat culpa et. Error maiores nihil libero.\n \rSunt sint eum. At ut a qui esse quo labore. Sit magnam ut odio quidem. Voluptas earum quia quia odio et nobis id. Praesentium et consequatur nesciunt non. Repudiandae inventore praesentium ut ut.\n \rMolestias aliquid suscipit totam voluptatem eius saepe ratione quibusdam ut. In sit deleniti consequatur fugiat. Id et vel eum repellat atque exercitationem aut. Cum sint sit aut id. Vero non amet neque eum impedit optio ut. Illo qui nobis sint vitae excepturi iusto autem officiis.",
       "image": "http://placeimg.com/640/480/technics",
       "id": "8"
     },
     {
-      "title": "titulo editado!!!!!!!!!!",
+      "title": "titulo editado con async !!!!!!!!!!",
       "description": "Unde at aut neque ipsa. Voluptates pariatur facilis adipisci sit. Consequatur ea nulla explicabo. Sequi harum ipsum rerum ut earum quis quo occaecati. Reiciendis sit aspernatur.\n \rOdit repudiandae hic sit accusantium quis repellendus rerum. Nam nemo necessitatibus voluptas aperiam. Est maiores eveniet accusantium doloremque odit.\n \rOptio tenetur sit dicta quo nulla perspiciatis et dolore. Rerum placeat aspernatur. Incidunt quos molestias ut qui aliquam. Cupiditate accusamus optio ex hic est tempore. Voluptatem dolorem expedita alias veniam autem itaque quia ab illum. Est perferendis corrupti.",
       "image": "http://placeimg.com/640/480/sports",
       "id": "9"
@@ -155,26 +143,6 @@
       "description": "Animi aut distinctio consequatur voluptates qui repellendus. Repellendus placeat consequatur non odio. Saepe quibusdam nesciunt. Modi sed dolores voluptates nisi et. Dolorum magni neque ut voluptatem natus expedita. Aspernatur est ut perspiciatis nam.\n \rMaiores commodi repellat optio dolores quis veniam vero culpa. Facere quo quia sequi perferendis dolorum perspiciatis. Veritatis dignissimos ea quia facilis. Et reiciendis sapiente.\n \rFuga quis molestias expedita. Nostrum id expedita sunt voluptas blanditiis corrupti nam autem. Eius occaecati eum harum quae amet consequatur sit.",
       "image": "http://placeimg.com/640/480/transport",
       "id": "31"
-    },
-    {
-      "title": "TITULO AGREGADO DESDE LA PAGINA",
-      "description": "Descripcion agregada desde la pagina hola mundo",
-      "image": "https://61ef3d0cd593d20017dbb393.mockapi.io/portafolio",
-      "id": "32"
-    },
-    {
-      "title": "ELEMENTO DOS DESDE LA PAGINA",
-      "description": "DESCRIPCION DESDE LA PAGINA HOLA MUNDO!!!!",
-      "image": "http://placeimg.com/640/480/transport",
-      "id": "33"
-    }
-  ],
-  "usuarios": [
-    {
-      "name": "sebastian"
-    },
-    {
-      "name": "jose luis"
     }
   ],
   "mascotas": [
@@ -183,6 +151,42 @@
     },
     {
       "name": "gordon"
+    }
+  ],
+  "usuarios": [
+    {
+      "user": "admin",
+      "password": "123456",
+      "response": {
+        "data": {
+          "name": "Sebastian",
+          "lastname": "Yabiku",
+          "age": 35
+        }
+      }
+    },
+    {
+      "user": "admin2",
+      "password": "123456",
+      "response": {
+        "data": {
+          "name": "Jose",
+          "lastname": "Yabiku",
+          "age": 33
+        }
+      }
+    }
+  ],
+  "contacto": [
+    {
+      "nombre": "sebastian",
+      "apellido": "yabiku",
+      "telefono": "923708059",
+      "correo": "sby2710@gmail.com",
+      "pais": "peru",
+      "presupuesto": "500-1000",
+      "comentario": "jajaja hola mundo!!!!!!",
+      "id": 1
     }
   ]
 }

@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import axios from "axios";
+import {
+  getDetailPortafolioServices,
+  updatePortafolioServices,
+} from "services/portafolio";
 
 export function PagePortafolioEditar() {
   let params = useParams();
@@ -12,35 +15,28 @@ export function PagePortafolioEditar() {
     image: "",
   });
 
-  function getPortafolio() {
-    axios
-      .get(
-        `https://61ef3d0cd593d20017dbb393.mockapi.io/portafolio/${params.id}`
-      )
-      .then((respuesta) => {
-        console.log("respuesta", respuesta.data);
-        setForm(respuesta.data);
-      });
+  async function getPortafolio(id) {
+    try {
+      const { data } = await getDetailPortafolioServices(id);
+      setForm(data);
+    } catch (e) {
+      alert("No se pudo obtener el dato");
+    }
   }
 
-  function actualizarPortafolio() {
-    axios
-      .put(
-        `https://61ef3d0cd593d20017dbb393.mockapi.io/portafolio/${params.id}`,
-        form
-      )
-      .then(() => {
-        alert("SE EDITO CORRECTAMENTE");
-        history.push("/portafolio");
-      })
-      .catch(() => {
-        alert("No se pudo actualizar, intentelo mas tarde");
-      });
+  async function actualizarPortafolio(id, form) {
+    try {
+      const { data } = await updatePortafolioServices(id, form);
+      alert("SE EDITO CORRECTAMENTE");
+      history.push("/portafolio");
+    } catch (e) {
+      alert("No se pudo actualizar, intentelo mas tarde");
+    }
   }
 
   useEffect(() => {
     // estado inicial
-    getPortafolio();
+    getPortafolio(params.id);
   }, []);
 
   return (
@@ -56,9 +52,7 @@ export function PagePortafolioEditar() {
       <form
         onSubmit={(evt) => {
           evt.preventDefault();
-          actualizarPortafolio();
-          //   guardarPortafolio();
-          console.log("form", form);
+          actualizarPortafolio(params.id, form);
         }}
       >
         <div className="sm:grid sm:grid-cols-2 sm:gap-10 mb-10">
