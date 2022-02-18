@@ -4,6 +4,7 @@ import {
   getDetailPortafolioServices,
   updatePortafolioServices,
 } from "services/portafolio";
+import { Form } from "../component/form";
 
 export function PagePortafolioEditar() {
   let params = useParams();
@@ -50,7 +51,15 @@ export function PagePortafolioEditar() {
       >
         VOLVER
       </button>
-      <form
+      <Form
+        onSubmit={(values) => {
+          actualizarPortafolio(params.id, values);
+        }}
+        valuesForm={form}
+        textButton="Editar"
+        type="edit"
+      />
+      {/* <form
         onSubmit={(evt) => {
           evt.preventDefault();
           actualizarPortafolio(params.id, form);
@@ -96,7 +105,7 @@ export function PagePortafolioEditar() {
             ACTUALIZAR
           </button>
         </div>
-      </form>
+      </form> */}
     </div>
   );
 }

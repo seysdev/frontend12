@@ -1,31 +1,37 @@
-import { useState } from "react";
-import axios from "axios";
+import { savePortafolioServices } from "services/portafolio";
 import { useHistory } from "react-router-dom";
+import { Form } from "../component/form";
 
 export function PagePortafolioCrear() {
-  const [form, setForm] = useState({
-    title: "",
-    description: "",
-    image: "",
-  });
   let history = useHistory();
 
-  function guardarPortafolio() {
-    axios
-      .post("https://61ef3d0cd593d20017dbb393.mockapi.io/portafolio", form)
-      .then(() => {
-        alert("Se grabo correctamente");
-        history.push("/portafolio");
-      })
-      .catch(() => {
-        alert("No se pudo realizar la grabacion , intentalo mas tarde");
-      });
+  async function guardarPortafolio(values) {
+    try {
+      await savePortafolioServices(values);
+      history.push("/portafolio");
+    } catch (e) {
+      alert("No se pudo realizar la grabacion , intentalo mas tarde");
+    }
+    // axios
+    //   .post("https://61ef3d0cd593d20017dbb393.mockapi.io/portafolio", values)
+    //   .then(() => {
+    //     alert("Se grabo correctamente");
+    //     history.push("/portafolio");
+    //   })
+    //   .catch(() => {
+    //     alert("No se pudo realizar la grabacion , intentalo mas tarde");
+    //   });
   }
 
   return (
     <div>
       <h1 className="text-4xl">AGREGA PORTAFOLIO</h1>
-      <form
+      <Form
+        onSubmit={async (values) => {
+          await guardarPortafolio(values);
+        }}
+      />
+      {/* <form
         onSubmit={(evt) => {
           evt.preventDefault();
           guardarPortafolio();
@@ -72,7 +78,7 @@ export function PagePortafolioCrear() {
             AGREGAR
           </button>
         </div>
-      </form>
+      </form> */}
     </div>
   );
 }
