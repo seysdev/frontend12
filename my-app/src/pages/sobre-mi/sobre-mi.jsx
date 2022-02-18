@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { Card } from "../../components/card/card";
 import { getPortafolioServices } from "services/portafolio";
 import "./sobre-mi.scss";
+// import axios from "axios";
 
 export function PageSobreMi() {
   let history = useHistory();
@@ -15,9 +16,17 @@ export function PageSobreMi() {
   const isLogin = useSelector((state) => state.auth.isLogin);
 
   async function getPortafolio() {
+    // try {
+    //   const { data } = await axios.get("http://localhost:3000/portafolio");
+    //   console.log("data", data);
+    //   setDatosPortafolio(data);
+    // } catch (e) {
+    //   alert("No cargo correctamente vuelvelo a intentar");
+    // }
+
     try {
       const { data } = await getPortafolioServices();
-      return data;
+      setDatosPortafolio(data);
     } catch (e) {
       alert("No cargo correctamente vuelvelo a intentar");
     }
@@ -26,14 +35,12 @@ export function PageSobreMi() {
   // ME VA DAR EL ESTADO INICIAL DEL COMPONENTE
   useEffect(() => {
     (async () => {
-      const data = await getPortafolio();
-      setIsLoading(false);
-      setDatosPortafolio(data);
+      await getPortafolio();
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return !isLoading ? (
+  return (
     <div className="page-sobre-mi">
       <h1>SOBRE MI {count}</h1>
       <button
@@ -61,7 +68,7 @@ export function PageSobreMi() {
         hic. Fugit obcaecati pariatur nostrum sint praesentium quia tempora sunt
         veritatis, reiciendis quis?
       </p>
-      {datosPortafolio.length > 0 ? (
+      {datosPortafolio.length > 0 && (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10">
           {datosPortafolio.map((portafolio, id) => (
             <Card
@@ -74,13 +81,7 @@ export function PageSobreMi() {
             />
           ))}
         </div>
-      ) : (
-        <h2 className="text-4xl font-bold bg-red-300 p-10 rounded-xl text-center text-white">
-          NO HAY DATOS AUN
-        </h2>
       )}
     </div>
-  ) : (
-    ""
   );
 }
